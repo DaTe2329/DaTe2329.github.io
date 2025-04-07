@@ -14,13 +14,27 @@ body {
   align-items: center;
   background-color: #333;
   padding: 1rem 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Added shadow for depth */
+}
+
+.navbar .logo {
+  display: flex;
+  align-items: center;
 }
 
 .navbar .logo h1 {
   color: #fff;
   font-size: 24px;
+  margin-left: 10px; /* Space between logo and text */
 }
 
+.navbar .logo img {
+  width: 40px; /* Logo image size */
+  height: auto;
+  border-radius: 50%;
+}
+
+/* Navigation Links */
 .nav-links {
   list-style: none;
   display: flex;
@@ -34,10 +48,11 @@ body {
   text-decoration: none;
   color: #fff;
   font-weight: 500;
+  transition: color 0.3s ease; /* Smooth hover transition */
 }
 
 .nav-links a:hover {
-  color: #ff5c5c;
+  color: #ff5c5c; /* Red highlight on hover */
 }
 
 /* Main Section */
@@ -46,6 +61,8 @@ body {
   padding: 4rem 2rem;
   background-color: #fff;
   margin-top: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Added shadow for depth */
+  border-radius: 8px; /* Rounded corners for a soft look */
 }
 
 .main-section h2 {
@@ -66,6 +83,7 @@ body {
   border: none;
   cursor: pointer;
   border-radius: 5px;
+  transition: background-color 0.3s ease; /* Smooth hover transition */
 }
 
 .btn-bet-now:hover {
@@ -98,6 +116,12 @@ body {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   text-align: center;
   width: 250px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover transition */
+}
+
+.match-card:hover {
+  transform: translateY(-5px); /* Hover effect for card */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Enhanced hover shadow */
 }
 
 .match-card h3 {
@@ -118,6 +142,7 @@ body {
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  transition: background-color 0.3s ease; /* Smooth hover transition */
 }
 
 .match-card button:hover {
