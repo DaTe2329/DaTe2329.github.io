@@ -1,6 +1,6 @@
 # pariezfoot.github.io
 # ⚽ Bienvenue sur **Pariez Foot** – Le jeu de paris 100% foot, 0% risques !
-
+## Soit patient on travaille toujours sur le projet actuellement 😉⚡ 
 Tu aimes le foot, tu sens les bons coups avant les autres, et tu veux prouver que tu es un vrai connaisseur ? **Pariez Foot** est fait pour toi !
 
 Ici, pas d’argent réel, pas de stress : tu paries avec des **BetCoins**, notre monnaie virtuelle. Chaque joueur commence avec un nombre de BetCoins et les utilise pour parier sur les matchs de foot du moment. Plus tu paries juste, plus tu grimpes dans le **classement général** !
