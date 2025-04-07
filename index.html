@@ -1,25 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Leaderboard</title>
+  <title>Football Betting</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-  <div class="leaderboard-container">
-    <h1>Leaderboard</h1>
-    <div class="leaderboard">
-      <ul>
-        <!-- Leaderboard items will be dynamically added here -->
+  <!-- Navigation Menu -->
+  <header>
+    <nav class="navbar">
+      <div class="logo">
+        <h1>BetFootball</h1>
+      </div>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#matches">Matches</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
       </ul>
+    </nav>
+  </header>
+
+  <!-- Main Section -->
+  <section id="home" class="main-section">
+    <h2>Welcome to BetFootball!</h2>
+    <p>Your go-to place for football betting. Bet on your favorite teams and win amazing rewards!</p>
+    <button class="btn-bet-now">Bet Now</button>
+  </section>
+
+  <!-- Matches Section -->
+  <section id="matches" class="matches-section">
+    <h2>Upcoming Matches</h2>
+    <div class="matches-list">
+      <div class="match-card">
+        <h3>Team A vs Team B</h3>
+        <p>Date: 10th April 2025</p>
+        <p>Odds: 2.5</p>
+        <button>Place Bet</button>
+      </div>
+      <div class="match-card">
+        <h3>Team C vs Team D</h3>
+        <p>Date: 11th April 2025</p>
+        <p>Odds: 3.0</p>
+        <button>Place Bet</button>
+      </div>
+      <!-- Add more matches here -->
     </div>
-  </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 BetFootball. All rights reserved.</p>
+  </footer>
 
   <script src="script.js"></script>
 </body>
-
 </html>
