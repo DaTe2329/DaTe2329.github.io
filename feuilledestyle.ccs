@@ -1,4 +1,4 @@
-/* Global Styles */
+/* Basic styling for the body */
 body {
   font-family: 'Roboto', sans-serif;
   margin: 0;
@@ -84,7 +84,7 @@ body {
   margin-bottom: 30px;
 }
 
-.matches-list {
+.match-list {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
