@@ -1,6 +1,6 @@
-<!-- Add this in your HTML <head> or before </body> -->
+
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<audio id="alrightMemeSound" src="https://www.myinstants.com/media/sounds/its-alright.mp3"></audio>
+<audio id="alrightMemeSound" src="i-mean-its-alright-like.mp3"></audio>
 
 <script>
   // Show alert when "Start Betting Now" is clicked
