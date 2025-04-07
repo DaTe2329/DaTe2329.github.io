@@ -1,74 +1,22 @@
-/* style.css */
-body {
-  font-family: 'Roboto', sans-serif;
-  margin: 0;
-  padding: 0;
-  background: #f0f4f8;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Leaderboard</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="leaderboard-container">
+    <h1>Leaderboard</h1>
+    <div class="leaderboard">
+      <ul>
+        <!-- Leaderboard items will be dynamically added here -->
+      </ul>
+    </div>
+  </div>
 
-.leaderboard-container {
-  background-color: #fff;
-  padding: 30px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  width: 80%;
-  max-width: 600px;
-  text-align: center;
-}
-
-h1 {
-  font-size: 32px;
-  color: #333;
-  margin-bottom: 20px;
-}
-
-.leaderboard {
-  list-style-type: none;
-  padding: 0;
-}
-
-.leaderboard ul {
-  margin: 0;
-  padding: 0;
-}
-
-.leaderboard li {
-  background: #fff;
-  padding: 15px;
-  margin-bottom: 10px;
-  border-radius: 8px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
-}
-
-.leaderboard li:hover {
-  background-color: #f8f8f8;
-  transform: translateY(-5px);
-}
-
-.leaderboard li span {
-  font-size: 20px;
-  color: #444;
-}
-
-.rank {
-  font-weight: 500;
-  color: #007BFF;
-}
-
-.username {
-  font-weight: 600;
-  color: #333;
-}
-
-.betcoins {
-  font-weight: 500;
-  color: #28a745;
-}
+  <script src="script.js"></script>
+</body>
+</html>
