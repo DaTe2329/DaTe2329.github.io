@@ -1,4 +1,4 @@
-// Basic script to show an alert when "Bet Now" button is clicked
+// Basic script to show an alert when "Start Betting Now" button is clicked
 document.querySelector('.btn-bet-now').addEventListener('click', function() {
   alert('Redirecting you to the betting page...');
 });
