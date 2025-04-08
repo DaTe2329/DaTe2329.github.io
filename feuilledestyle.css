@@ -134,8 +134,8 @@ footer {
   color: #fff;
   padding: 20px 0;
 }
-/* Registration Section */
-.registration-section {
+/* Connexion Section */
+.connexion-section {
   padding: 3rem 2rem;
   background-color: #ffffff;
   max-width: 500px;
@@ -144,25 +144,25 @@ footer {
   border-radius: 10px;
 }
 
-.registration-section h2 {
+.connexion-section h2 {
   text-align: center;
   font-size: 28px;
   margin-bottom: 30px;
   color: #333;
 }
 
-#registrationForm {
+#loginForm {
   display: flex;
   flex-direction: column;
 }
 
-#registrationForm label {
+#loginForm label {
   margin-bottom: 8px;
   font-weight: 500;
   color: #555;
 }
 
-#registrationForm input {
+#loginForm input {
   padding: 12px;
   margin-bottom: 20px;
   border: 1px solid #ccc;
@@ -171,12 +171,12 @@ footer {
   transition: border-color 0.3s ease;
 }
 
-#registrationForm input:focus {
+#loginForm input:focus {
   border-color: #007bff;
   outline: none;
 }
 
-#registrationForm button {
+#loginForm button {
   padding: 12px;
   background-color: #007bff;
   color: white;
@@ -187,11 +187,11 @@ footer {
   transition: background-color 0.3s ease;
 }
 
-#registrationForm button:hover {
+#loginForm button:hover {
   background-color: #0056b3;
 }
 
-#registrationMessage {
+#loginMessage {
   text-align: center;
   margin-top: 15px;
   font-weight: bold;
