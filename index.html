@@ -2,8 +2,8 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>PariezFoot - La victoire est à portée de clic. Pariez maintenant !</title>
   <link href="feuilledestyle.css" rel="stylesheet" type="text/css" />
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -24,14 +24,12 @@
     </nav>
   </header>
 
-  <!-- Main Section -->
   <section id="home" class="main-section">
     <h2>Bienvenues sur PariezFoot!</h2>
     <p>La victoire est à portée de clic. Pariez maintenant !</p>
     <button class="btn-bet-now">Placer un pari maintenant</button>
   </section>
 
-  <!-- Matches Section -->
   <section id="matches" class="matches-section">
     <h2>Matchs à venir</h2>
     <ul class="match-list">
@@ -50,44 +48,14 @@
     </ul>
   </section>
 
-  <!-- Footer -->
   <footer>
     <p>&copy; 2025 PariezFoot. Tous droits réservés.</p>
   </footer>
 
-  <!-- Audio Meme -->
-  <audio id="alrightMemeSound" src="i-mean-its-alright-like.mp3"></audio>
+  <!-- Audio for meme -->
+  <audio id="alrightMemeSound" src="i-mean-its-alright-like.mp3" preload="auto"></audio>
 
-  <!-- Script -->
-  <script>
-    document.querySelector('.btn-bet-now').addEventListener('click', function () {
-      Swal.fire({
-        title: 'Let\'s gooo!',
-        text: 'Redirecting you to the betting page...',
-        icon: 'info',
-      });
-    });
-
-    const betButtons = document.querySelectorAll('.match-card button');
-    betButtons.forEach(button => {
-      button.addEventListener('click', function () {
-        Swal.fire({
-          title: 'I mean…',
-          text: "It's alright 😐",
-          imageUrl: 'https://i.kym-cdn.com/entries/icons/facebook/000/044/064/alright.jpg',
-          imageWidth: 400,
-          imageHeight: 225,
-          imageAlt: 'I mean its alright meme',
-          didOpen: () => {
-            const sound = document.getElementById('alrightMemeSound');
-            sound.currentTime = 0;
-            sound.play();
-          }
-        });
-      });
-    });
-  </script>
-
+  <!-- External JS file where all logic is handled -->
   <script src="script.js"></script>
 </body>
 
