@@ -6,68 +6,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>PariezFoot - La victoire est à portée de clic. Pariez maintenant !</title>
   <link href="feuilledestyle.css" rel="stylesheet" type="text/css" />
-
-  
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<audio id="alrightMemeSound" src="i-mean-its-alright-like.mp3"></audio>
-<script>
-
-  document.querySelector('.btn-bet-now').addEventListener('click', function () {
-    Swal.fire({
-      title: 'Let\'s gooo!',
-      text: 'Redirecting you to the betting page...',
-      icon: 'info',
-    });
-  });
-
-  // Show meme alert when "Place Bet" is clicked
-  const betButtons = document.querySelectorAll('.match-card button');
-  betButtons.forEach(button => {
-    button.addEventListener('click', function () {
-      Swal.fire({
-        title: 'I mean…',
-        text: "It's alright 😐",
-        imageUrl: 'https://i.kym-cdn.com/entries/icons/facebook/000/044/064/alright.jpg',
-        imageWidth: 400,
-        imageHeight: 225,
-        imageAlt: 'I mean its alright meme',
-        didOpen: () => {
-          const sound = document.getElementById('alrightMemeSound');
-          sound.currentTime = 0; // restart if already playing
-          sound.play();
-        }
-      });
-    });
-  });
-</script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body>
   <header>
     <nav class="navbar">
       <div class="logo">
-        <!-- Add logo here -->
-        <img src="ae24868e092542c1a54f740481691587-free.png" alt="PariezFoot Logo" class="ae24868e092542c1a54f740481691587-free.png" />
+        <img src="ae24868e092542c1a54f740481691587-free.png" alt="PariezFoot Logo" />
       </div>
       <ul class="nav-links">
         <li><a href="#home">Home</a></li>
@@ -82,24 +28,24 @@
   <section id="home" class="main-section">
     <h2>Bienvenues sur PariezFoot!</h2>
     <p>La victoire est à portée de clic. Pariez maintenant !</p>
-    <button class="btn-bet-now">Placer un paris maintenant</button>
+    <button class="btn-bet-now">Placer un pari maintenant</button>
   </section>
 
   <!-- Matches Section -->
   <section id="matches" class="matches-section">
-    <h2>Match à venir</h2>
+    <h2>Matchs à venir</h2>
     <ul class="match-list">
       <li class="match-card">
         <h3>Equipe A vs Equipe B</h3>
         <p>Date: 10 Avril 2025</p>
         <p>Cote: 2.5</p>
-        <button>Placez votre paris</button>
+        <button>Placez votre pari</button>
       </li>
       <li class="match-card">
         <h3>Equipe C vs Equipe D</h3>
         <p>Date: 11 Avril 2025</p>
         <p>Cote: 3.0</p>
-        <button>Placez votre paris</button>
+        <button>Placez votre pari</button>
       </li>
     </ul>
   </section>
@@ -108,6 +54,39 @@
   <footer>
     <p>&copy; 2025 PariezFoot. Tous droits réservés.</p>
   </footer>
+
+  <!-- Audio Meme -->
+  <audio id="alrightMemeSound" src="i-mean-its-alright-like.mp3"></audio>
+
+  <!-- Script -->
+  <script>
+    document.querySelector('.btn-bet-now').addEventListener('click', function () {
+      Swal.fire({
+        title: 'Let\'s gooo!',
+        text: 'Redirecting you to the betting page...',
+        icon: 'info',
+      });
+    });
+
+    const betButtons = document.querySelectorAll('.match-card button');
+    betButtons.forEach(button => {
+      button.addEventListener('click', function () {
+        Swal.fire({
+          title: 'I mean…',
+          text: "It's alright 😐",
+          imageUrl: 'https://i.kym-cdn.com/entries/icons/facebook/000/044/064/alright.jpg',
+          imageWidth: 400,
+          imageHeight: 225,
+          imageAlt: 'I mean its alright meme',
+          didOpen: () => {
+            const sound = document.getElementById('alrightMemeSound');
+            sound.currentTime = 0;
+            sound.play();
+          }
+        });
+      });
+    });
+  </script>
 
   <script src="script.js"></script>
 </body>
