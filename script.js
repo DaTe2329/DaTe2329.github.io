@@ -1,32 +1,32 @@
-// script.js
-
-const apiKey = 
-
-fetch('https://v3.football.api-sports.io/fixtures?next=2', {
-  method: 'GET',
-  headers: {
-    'x-apisports-key': apiKey
+let clickCount = 0;
+document.querySelector('.logo').addEventListener('click', () => {
+  clickCount++;
+  if (clickCount >= 5) {
+    document.getElementById('adminPanel').style.display = 'block';
+    alert('Mode admin activé !');
+    clickCount = 0
   }
-})
-.then(response => response.json())
-.then(data => {
+});
+document.getElementById('addMatchForm').addEventListener('submit', function (e) {
+  e.preventDefault();
+
+  const teamA = document.getElementById('teamA').value;
+  const teamB = document.getElementById('teamB').value;
+  const date = new Date(document.getElementById('matchDate').value).toLocaleString();
+  const odds = document.getElementById('matchOdds').value;
+
   const matchList = document.querySelector('.match-list');
-  matchList.innerHTML = ''; // vide la liste de base
 
-  data.response.forEach(match => {
-    const homeTeam = match.teams.home.name;
-    const awayTeam = match.teams.away.name;
-    const date = new Date(match.fixture.date).toLocaleString();
-    const matchCard = `
-      <li class="match-card">
-        <h3>${homeTeam} vs ${awayTeam}</h3>
-        <p>Date : ${date}</p>
-        <p>Cote : 2.5</p> 
-        <button>Placez votre pari</button>
-      </li>
-    `;
-    matchList.innerHTML += matchCard;
-  });
-})
-.catch(error => console.error('Erreur lors du chargement des matchs:', error));
+  const matchCard = `
+    <li class="match-card">
+      <h3>${teamA} vs ${teamB}</h3>
+      <p>Date: ${date}</p>
+      <p>Cote: ${odds}</p>
+      <button>Placez votre pari</button>
+    </li>
+  `;
 
+  matchList.innerHTML += matchCard;
+
+  this.reset(); // Vide le formulaire
+});
