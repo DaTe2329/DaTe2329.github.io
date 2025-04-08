@@ -1,62 +1,38 @@
-<!DOCTYPE html>
-<html lang="en">
+<!-- SweetAlert2 -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PariezFoot - La victoire est à portée de clic. Pariez maintenant !</title>
-  <link href="feuilledestyle.css" rel="stylesheet" type="text/css" />
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-</head>
+<!-- Audio préchargé pour le son du meme -->
+<audio id="alrightMemeSound" src="i-mean-its-alright-like.mp3" preload="auto"></audio>
 
-<body>
-  <header>
-    <nav class="navbar">
-      <div class="logo">
-        <img src="ae24868e092542c1a54f740481691587-free.png" alt="PariezFoot Logo" />
-      </div>
-      <ul class="nav-links">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#matchs">Matchs</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+<script>
+  // Alert when "Start Betting Now" is clicked
+  document.querySelector('.btn-bet-now').addEventListener('click', function () {
+    Swal.fire({
+      title: 'Let\'s gooo!',
+      text: 'Vous devez etre connecté pour effectuer cette action...',
+      icon: 'info',
+    });
+  });
 
-  <section id="home" class="main-section">
-    <h2>Bienvenues sur PariezFoot!</h2>
-    <p>La victoire est à portée de clic. Pariez maintenant !</p>
-    <button class="btn-bet-now">Placer un pari maintenant</button>
-  </section>
+  // Alert with meme + sound when "Place Bet" is clicked
+  const betButtons = document.querySelectorAll('.match-card button');
+  betButtons.forEach(button => {
+    button.addEventListener('click', function () {
+      const sound = document.getElementById('alrightMemeSound');
+      sound.currentTime = 0;
+      sound.play();
 
-  <section id="matches" class="matches-section">
-    <h2>Matchs à venir</h2>
-    <ul class="match-list">
-      <li class="match-card">
-        <h3>Equipe A vs Equipe B</h3>
-        <p>Date: 10 Avril 2025</p>
-        <p>Cote: 2.5</p>
-        <button>Placez votre pari</button>
-      </li>
-      <li class="match-card">
-        <h3>Equipe C vs Equipe D</h3>
-        <p>Date: 11 Avril 2025</p>
-        <p>Cote: 3.0</p>
-        <button>Placez votre pari</button>
-      </li>
-    </ul>
-  </section>
-
-  <footer>
-    <p>&copy; 2025 PariezFoot. Tous droits réservés.</p>
-  </footer>
-
-  <!-- Audio for meme -->
-  <audio id="alrightMemeSound" src="i-mean-its-alright-like.mp3" preload="auto"></audio>
-
-  <!-- External JS file where all logic is handled -->
-  <script src="script.js"></script>
-</body>
-
-</html>
+      Swal.fire({
+        title: 'Désolé cette fonctionnalité nest pas encore disponible',
+        text: "Revenez plus tard !",
+        imageUrl: 'https://i.kym-cdn.com/entries/icons/facebook/000/044/064/alright.jpg',
+        imageWidth: 400,
+        imageHeight: 225,
+        imageAlt: 'I mean its alright meme',
+        showConfirmButton: false,
+        timer: 3500,
+        background: '#fff',
+      });
+    });
+  });
+</script>
