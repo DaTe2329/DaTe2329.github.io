@@ -3,7 +3,7 @@
 
 <!-- Optional: preload or hide the video file for smoother playback -->
 <video id="alrightMemeVideo" width="0" height="0" style="display: none;">
-  <source src="i-mean-its-alright-like.mp4" type="video/mp4">
+  <source src="i-mean-its-alright-like.mp3" type="video/mp3">
 </video>
 
 <script>
@@ -24,7 +24,7 @@
         title: 'I mean…',
         html: `
           <video width="100%" controls autoplay>
-            <source src="i-mean-its-alright-like.mp4" type="video/mp4">
+            <source src="i-mean-its-alright-like.mp3" type="video/mp3">
             Your browser does not support the video tag.
           </video>
         `,
