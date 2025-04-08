@@ -1,6 +1,6 @@
 // script.js
 
-const apiKey = 'fa050689d1dbbad722913e153b88f32f';
+const apiKey = 
 
 fetch('https://v3.football.api-sports.io/fixtures?next=2', {
   method: 'GET',
