@@ -5,6 +5,9 @@ document.querySelector('.logo').addEventListener('click', () => {
     document.getElementById('adminPanel').style.display = 'block';
     alert('Mode admin activé !');
     clickCount = 0
+    if (clickCount >= 10) {
+    alert('Never gonna give you up, never gonna let you down Never gonna run around and desert you Never gonna make you cry, never gonna say goodbye Never gonna tell a lie and hurt you')
+
   }
 });
 document.getElementById('addMatchForm').addEventListener('submit', function (e) {
