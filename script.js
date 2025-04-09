@@ -1,16 +1,10 @@
 let clickCount = 0;
-
-document.querySelector('.logo').addEventListener('click', () => {
-  clickCount++;
-
-  if (clickCount === 5) {
-    document.getElementById('adminPanel').style.display = 'block';
-    alert('Mode admin activé !');
-  }
-
-  if (clickCount === 10) {
-    alert("Never gonna give you up, never gonna let you down\nNever gonna run around and desert you\nNever gonna make you cry, never gonna say goodbye\nNever gonna tell a lie and hurt you");
-    clickCount = 0; // Reset after the second trigger
+ document.querySelector('.logo').addEventListener('click', () => {
+   clickCount++;
+   if (clickCount >= 5) {
+     document.getElementById('adminPanel').style.display = 'block';
+     alert('Mode admin activé !');
+     clickCount = 0
   }
 });
 
