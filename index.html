@@ -68,8 +68,7 @@
         icon: 'info',
       });
     });
-//<!-- partie semi casé -->
-              
+            
     const betButtons = document.querySelectorAll('.match-card button');
     betButtons.forEach(button => {
       button.addEventListener('click', function () {
@@ -83,7 +82,7 @@
           didOpen: () => {
            const sound = document.getElementById('alrightMemeSound');
             sound.currentTime = 0;
-            sound.play(; //here ) missing
+            sound.play(); 
           }
         });
       });
