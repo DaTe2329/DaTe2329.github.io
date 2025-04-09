@@ -19,10 +19,10 @@ Affronte les autres passionnés et montre que tu es le meilleur pronostiqueur. C
 ---
 
 ## 🎯 Zéro risque, 100% fun  
-###Tu ne mises pas d’argent réel. Juste ton **instinct** et tes **BetCoins**.  
+Tu ne mises pas d’argent réel. Juste ton **instinct** et tes **BetCoins**.  
 Perds tout ? Pas grave, tu pourras recommencer une nouvelle saison.
-Tu commencera avec 100betcoins et tu en obtient 15 par jour ! 
+Tu commencera avec 100 betcoins et tu en obtient 15 par jour !
 ---
 
 ## 📱 Interface simple et rapide  
-Un design épuré pour parier en quelques clics, suivre tes stats et voir ton évolution dans le classement.
+Un design épuré pour parier en quelques clics, suivre tes stats et voir ton évolution dans le classement. Tu commencera avec 100 betcoins et tu en obtient 15 par jour !
