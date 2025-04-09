@@ -61,34 +61,33 @@
 
   <!-- Script -->
   <script>
-    document.querySelector('.btn-bet-now').addEventListener('click', function () {
-      Swal.fire({
-        title: 'Let\'s gooo!',
-        text: 'Vous devez être connecté pour effectuer cette action...',
-        icon: 'info',
-      });
-    });
-            
-    const betButtons = document.querySelectorAll('.match-card button');
-    betButtons.forEach(button => {
-      button.addEventListener('click', function () {
-        Swal.fire({
-          title: 'Désolé cette fonctionnalité n\'est pas encore disponible',
-          text: "Revenez plus tard !",
-          imageUrl: 'https://i.kym-cdn.com/entries/icons/facebook/000/044/064/alright.jpg',
-          imageWidth: 400,
-          imageHeight: 225,
-          imageAlt: 'I mean its alright meme',
-          didOpen: () => {
-           const sound = document.getElementById('alrightMemeSound');
-            sound.currentTime = 0;
-            sound.play(); 
-          }
-        });
-      });
-    });
-  
-  </script>
+     document.querySelector('.btn-bet-now').addEventListener('click', function () {
+       Swal.fire({
+         title: 'Let\'s gooo!',
+         text: 'Vous devez être connecté pour effectuer cette action...',
+         icon: 'info',
+       });
+     });
+ 
+     const betButtons = document.querySelectorAll('.match-card button');
+     betButtons.forEach(button => {
+       button.addEventListener('click', function () {
+         Swal.fire({
+           title: 'Désolé cette fonctionnalité n\'est pas encore disponible',
+           text: "Revenez plus tard !",
+           imageUrl: 'https://i.kym-cdn.com/entries/icons/facebook/000/044/064/alright.jpg',
+           imageWidth: 400,
+           imageHeight: 225,
+           imageAlt: 'I mean its alright meme',
+           didOpen: () => {
+             const sound = document.getElementById('alrightMemeSound');
+             sound.currentTime = 0;
+             sound.play();
+           }
+         });
+       });
+     });
+   </script>
 
   <script src="script.js"></script>
 </body>
