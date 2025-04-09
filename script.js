@@ -1,13 +1,16 @@
- let clickCount = 0;
- document.querySelector('.logo').addEventListener('click', () => {
-   clickCount++;
-   if (clickCount >= 5) {
-     document.getElementById('adminPanel').style.display = 'block';
-     alert('Mode admin activé !');
-     clickCount = 0
-   }
- });
+let clickCount = 0;
 
+
+document.querySelector('.logo').addEventListener('click', () => {
+  clickCount++;
+  if (clickCount >= 5) {
+    document.getElementById('adminPanel').style.display = 'block';
+    alert('Mode admin activé !');
+    clickCount = 0;
+  }
+});
+
+// ➕ Add match manually through admin panel
 document.getElementById('addMatchForm').addEventListener('submit', function (e) {
   e.preventDefault();
 
@@ -28,31 +31,33 @@ document.getElementById('addMatchForm').addEventListener('submit', function (e) 
   `;
 
   matchList.innerHTML += matchCard;
-
-  this.reset(); // Vide le formulaire
+  this.reset();
 });
-// 🔥 Fetch real matches from the backend
-fetch('http://localhost:3000/matches')
+
+// Fetch real matches from backend API and display them
+fetch('https://date2329.github.io/')
   .then(res => res.json())
   .then(data => {
     const matchList = document.querySelector('.match-list');
-    matchList.innerHTML = ''; // Remove hardcoded matches
+    matchList.innerHTML = ''; // Clear hardcoded HTML
 
     data.matches.forEach(match => {
       const home = match.homeTeam.name;
       const away = match.awayTeam.name;
       const date = new Date(match.utcDate).toLocaleString();
+      const odds = (Math.random() * 3 + 1).toFixed(2); // Random odds 1.00 - 4.00
 
-      const matchCard = document.createElement('li');
-      matchCard.className = 'match-card';
-      matchCard.innerHTML = `
+      const li = document.createElement('li');
+      li.className = 'match-card';
+      li.innerHTML = `
         <h3>${home} vs ${away}</h3>
         <p>Date: ${date}</p>
-        <p>Cote: ${(Math.random() * 3 + 1).toFixed(2)}</p>
+        <p>Cote: ${odds}</p>
         <button>Placez votre pari</button>
       `;
 
-      matchCard.querySelector('button').addEventListener('click', () => {
+      // Meme popup on button click
+      li.querySelector('button').addEventListener('click', () => {
         Swal.fire({
           title: 'Désolé cette fonctionnalité n\'est pas encore disponible',
           text: "Revenez plus tard !",
@@ -68,7 +73,7 @@ fetch('http://localhost:3000/matches')
         });
       });
 
-      matchList.appendChild(matchCard);
+      matchList.appendChild(li);
     });
   })
   .catch(err => {
