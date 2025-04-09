@@ -1,5 +1,5 @@
 # pariezfoot.github.io
-# ⚽ Bienvenue sur **Pariez Foot** – Le jeu de paris 100% foot, 0% risques !
+# ⚽Bienvenue sur **Pariez Foot** – Le jeu de paris 100% foot, 0% risques !
 ## Soit patient on travaille toujours sur le projet actuellement 😉⚡ 
 Tu aimes le foot, tu sens les bons coups avant les autres, et tu veux prouver que tu es un vrai connaisseur ? **Pariez Foot** est fait pour toi !
 
