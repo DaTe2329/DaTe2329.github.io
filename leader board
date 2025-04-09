@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> #NOT WORKING 
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -8,15 +8,15 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="leaderboard-container">
+  <div class="leaderboard-container">                   #NOT WORKING 
     <h1>Leaderboard</h1>
     <div class="leaderboard">
       <ul>
-        <!-- Leaderboard items will be dynamically added here -->
+       
       </ul>
     </div>
   </div>
 
-  <script src="script.js"></script>
+  <script src="script.js"></script>                         #NOT WORKING 
 </body>
 </html>
