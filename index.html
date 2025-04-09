@@ -68,25 +68,28 @@
         icon: 'info',
       });
     });
-
+//<!-- partie casé -->
+              
     const betButtons = document.querySelectorAll('.match-card button');
     betButtons.forEach(button => {
       button.addEventListener('click', function () {
         Swal.fire({
           title: 'Désolé cette fonctionnalité n\'est pas encore disponible',
           text: "Revenez plus tard !",
-          imageUrl: 'https://i.kym-cdn.com/entries/icons/facebook/000/044/064/alright.jpg',
+          //imageUrl: 'https://i.kym-cdn.com/entries/icons/facebook/000/044/064/alright.jpg',
           imageWidth: 400,
           imageHeight: 225,
-          imageAlt: 'I mean its alright meme',
+          //imageAlt: 'I mean its alright meme',
           didOpen: () => {
-            const sound = document.getElementById('alrightMemeSound');
+           // const sound = document.getElementById('alrightMemeSound');
             sound.currentTime = 0;
-            sound.play();
+            sound.play(; //here ) missing
           }
         });
       });
     });
+//#brokenpartby Emdev202
+  
   </script>
 
   <script src="script.js"></script>
