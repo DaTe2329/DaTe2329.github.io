@@ -1,15 +1,19 @@
 let clickCount = 0;
+
 document.querySelector('.logo').addEventListener('click', () => {
   clickCount++;
-  if (clickCount >= 5) {
+
+  if (clickCount === 5) {
     document.getElementById('adminPanel').style.display = 'block';
     alert('Mode admin activé !');
-    clickCount = 0
-    if (clickCount >= 10) {
-    alert('Never gonna give you up, never gonna let you down Never gonna run around and desert you Never gonna make you cry, never gonna say goodbye Never gonna tell a lie and hurt you')
+  }
 
+  if (clickCount === 10) {
+    alert("Never gonna give you up, never gonna let you down\nNever gonna run around and desert you\nNever gonna make you cry, never gonna say goodbye\nNever gonna tell a lie and hurt you");
+    clickCount = 0; // Reset after the second trigger
   }
 });
+
 document.getElementById('addMatchForm').addEventListener('submit', function (e) {
   e.preventDefault();
 
