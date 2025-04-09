@@ -1,12 +1,12 @@
-let clickCount = 0;
+ let clickCount = 0;
  document.querySelector('.logo').addEventListener('click', () => {
    clickCount++;
    if (clickCount >= 5) {
      document.getElementById('adminPanel').style.display = 'block';
      alert('Mode admin activé !');
      clickCount = 0
-  }
-});
+   }
+ });
 
 document.getElementById('addMatchForm').addEventListener('submit', function (e) {
   e.preventDefault();
