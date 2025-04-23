@@ -51,6 +51,64 @@
     </ul>
   </section>
 
+  <!-- Phase à élimination directe de la Ligue des Champions -->
+  <section id="phase-elimination" style="padding: 2rem;">
+    <h2>Phase à élimination directe</h2>
+
+    <!-- Barrages -->
+    <div class="round">
+      <h3>Barrages</h3>
+      <div class="match">
+        <div><img src="https://upload.wikimedia.org/wikipedia/en/0/0c/Sporting_CP_logo.svg" class="logo"> Sporting CP 1</div>
+        <div><img src="https://upload.wikimedia.org/wikipedia/en/4/4a/AtalantaBC2022.svg" class="logo"> Atalanta 2</div>
+      </div>
+    </div>
+
+    <!-- Huitièmes -->
+    <div class="round">
+      <h3>Huitièmes de finale</h3>
+      <div class="match">
+        <div><img src="https://upload.wikimedia.org/wikipedia/en/5/53/Real_Madrid_CF.svg" class="logo"> Real Madrid 3</div>
+        <div><img src="https://upload.wikimedia.org/wikipedia/en/5/53/RB_Leipzig_2014_logo.svg" class="logo"> RB Leipzig 1</div>
+      </div>
+      <div class="match">
+        <div><img src="https://upload.wikimedia.org/wikipedia/en/5/53/Arsenal_FC.svg" class="logo"> Arsenal 2</div>
+        <div><img src="https://upload.wikimedia.org/wikipedia/en/0/0c/FC_Porto.svg" class="logo"> Porto 1</div>
+      </div>
+    </div>
+
+    <!-- Quarts -->
+    <div class="round">
+      <h3>Quarts de finale</h3>
+      <div class="match">
+        <div><img src="https://upload.wikimedia.org/wikipedia/en/5/53/Real_Madrid_CF.svg" class="logo"> Real Madrid 2</div>
+        <div><img src="https://upload.wikimedia.org/wikipedia/en/5/53/Arsenal_FC.svg" class="logo"> Arsenal 3</div>
+      </div>
+    </div>
+
+    <!-- Demi-finales -->
+    <div class="round">
+      <h3>Demi-finales</h3>
+      <div class="match">
+        <div><img src="https://upload.wikimedia.org/wikipedia/en/5/53/Arsenal_FC.svg" class="logo"> Arsenal</div>
+        <div><img src="https://upload.wikimedia.org/wikipedia/en/2/25/Paris_Saint-Germain_Logo.svg" class="logo"> Paris SG</div>
+      </div>
+      <div class="match">
+        <div><img src="https://upload.wikimedia.org/wikipedia/en/4/47/FC_Barcelona_%28crest%29.svg" class="logo"> FC Barcelone</div>
+        <div><img src="https://upload.wikimedia.org/wikipedia/en/0/0c/FC_Internazionale_Milano_2021.svg" class="logo"> Inter Milan</div>
+      </div>
+    </div>
+
+    <!-- Finale -->
+    <div class="round">
+      <h3>Finale</h3>
+      <div class="match">
+        <div>Gagnant demi-finale 1</div>
+        <div>Gagnant demi-finale 2</div>
+      </div>
+    </div>
+  </section>
+
   <!-- Footer -->
   <footer>
     <p>&copy; 2025 PariezFoot. Tous droits réservés.</p>
@@ -61,45 +119,46 @@
 
   <!-- Script -->
   <script>
-     document.querySelector('.btn-bet-now').addEventListener('click', function () {
-       Swal.fire({
-         title: 'Let\'s gooo!',
-         text: 'Vous devez être connecté pour effectuer cette action...',
-         icon: 'info',
-       });
-     });
- 
-     const betButtons = document.querySelectorAll('.match-card button');
-     betButtons.forEach(button => {
-       button.addEventListener('click', function () {
-         Swal.fire({
-           title: 'Désolé cette fonctionnalité n\'est pas encore disponible',
-           text: "Revenez plus tard !",
-           imageUrl: 'https://i.kym-cdn.com/entries/icons/facebook/000/044/064/alright.jpg',
-           imageWidth: 400,
-           imageHeight: 225,
-           imageAlt: 'I mean its alright meme',
-           didOpen: () => {
-             const sound = document.getElementById('alrightMemeSound');
-             sound.currentTime = 0;
-             sound.play();
-           }
-         });
-       });
-     });
-   </script>
+    document.querySelector('.btn-bet-now').addEventListener('click', function () {
+      Swal.fire({
+        title: 'Let\'s gooo!',
+        text: 'Vous devez être connecté pour effectuer cette action...',
+        icon: 'info',
+      });
+    });
+
+    const betButtons = document.querySelectorAll('.match-card button');
+    betButtons.forEach(button => {
+      button.addEventListener('click', function () {
+        Swal.fire({
+          title: 'Désolé cette fonctionnalité n\'est pas encore disponible',
+          text: "Revenez plus tard !",
+          imageUrl: 'https://i.kym-cdn.com/entries/icons/facebook/000/044/064/alright.jpg',
+          imageWidth: 400,
+          imageHeight: 225,
+          imageAlt: 'I mean its alright meme',
+          didOpen: () => {
+            const sound = document.getElementById('alrightMemeSound');
+            sound.currentTime = 0;
+            sound.play();
+          }
+        });
+      });
+    });
+  </script>
 
   <script src="script.js"></script>
-<section class="admin-section" style="padding: 2rem; display: none;" id="adminPanel">
-  <h2>Ajouter un match</h2>
-  <form id="addMatchForm">
-    <input type="text" placeholder="Équipe 1" id="teamA" required />
-    <input type="text" placeholder="Équipe 2" id="teamB" required />
-    <input type="datetime-local" id="matchDate" required />
-    <input type="number" step="0.1" placeholder="Cote" id="matchOdds" required />
-    <button type="submit">Ajouter le match</button>
-  </form>
-</section>
 
-</html>
+  <section class="admin-section" style="padding: 2rem; display: none;" id="adminPanel">
+    <h2>Ajouter un match</h2>
+    <form id="addMatchForm">
+      <input type="text" placeholder="Équipe 1" id="teamA" required />
+      <input type="text" placeholder="Équipe 2" id="teamB" required />
+      <input type="datetime-local" id="matchDate" required />
+      <input type="number" step="0.1" placeholder="Cote" id="matchOdds" required />
+      <button type="submit">Ajouter le match</button>
+    </form>
+  </section>
+
 </body>
+</html>
