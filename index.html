@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="fr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,6 +9,7 @@
 </head>
 
 <body>
+  <!-- Header -->
   <header>
     <nav class="navbar">
       <div class="logo">
@@ -25,15 +25,15 @@
     </nav>
   </header>
 
-  <!-- Main Section -->
+  <!-- Accueil -->
   <section id="home" class="main-section">
-    <h2>Bienvenues sur PariezFoot!</h2>
+    <h2>Bienvenue sur PariezFoot!</h2>
     <p>La victoire est à portée de clic. Pariez maintenant !</p>
     <button class="btn-bet-now">Placer un pari maintenant</button>
   </section>
 
-  <!-- Matches Section -->
-  <section id="matches" class="matches-section">
+  <!-- Matchs à venir -->
+  <section id="matchs" class="matches-section">
     <h2>Matchs à venir</h2>
     <ul class="match-list">
       <li class="match-card">
@@ -51,61 +51,46 @@
     </ul>
   </section>
 
-  <!-- Phase à élimination directe de la Ligue des Champions -->
-  <section id="phase-elimination" style="padding: 2rem;">
-    <h2>Phase à élimination directe</h2>
+  <!-- Tableau Ligue des Champions -->
+  <section class="ucl-bracket" style="padding: 2rem;">
+    <h2>🏆 Ligue des Champions 2024-2025</h2>
 
     <!-- Barrages -->
     <div class="round">
       <h3>Barrages</h3>
       <div class="match">
-        <div><img src="https://upload.wikimedia.org/wikipedia/en/0/0c/Sporting_CP_logo.svg" class="logo"> Sporting CP 1</div>
-        <div><img src="https://upload.wikimedia.org/wikipedia/en/4/4a/AtalantaBC2022.svg" class="logo"> Atalanta 2</div>
+        <div><img src="images/sporting.png" class="logo"> Sporting CP 1</div>
+        <div><img src="images/atalanta.png" class="logo"> Atalanta 2</div>
       </div>
     </div>
 
-    <!-- Huitièmes -->
+    <!-- Huitièmes de finale -->
     <div class="round">
       <h3>Huitièmes de finale</h3>
-      <div class="match">
-        <div><img src="https://upload.wikimedia.org/wikipedia/en/5/53/Real_Madrid_CF.svg" class="logo"> Real Madrid 3</div>
-        <div><img src="https://upload.wikimedia.org/wikipedia/en/5/53/RB_Leipzig_2014_logo.svg" class="logo"> RB Leipzig 1</div>
-      </div>
-      <div class="match">
-        <div><img src="https://upload.wikimedia.org/wikipedia/en/5/53/Arsenal_FC.svg" class="logo"> Arsenal 2</div>
-        <div><img src="https://upload.wikimedia.org/wikipedia/en/0/0c/FC_Porto.svg" class="logo"> Porto 1</div>
-      </div>
+      <div class="match"><img src="images/real-madrid.png" class="logo"> Real Madrid 3 vs <img src="images/leipzig.png" class="logo"> RB Leipzig 1</div>
+      <div class="match"><img src="images/arsenal.png" class="logo"> Arsenal 2 vs <img src="images/porto.png" class="logo"> FC Porto 1</div>
+      <div class="match"><img src="images/psg.png" class="logo"> Paris SG 4 vs <img src="images/real-sociedad.png" class="logo"> Real Sociedad 1</div>
+      <div class="match"><img src="images/barcelona.png" class="logo"> FC Barcelone 3 vs <img src="images/napoli.png" class="logo"> Napoli 1</div>
     </div>
 
-    <!-- Quarts -->
+    <!-- Quarts de finale -->
     <div class="round">
       <h3>Quarts de finale</h3>
-      <div class="match">
-        <div><img src="https://upload.wikimedia.org/wikipedia/en/5/53/Real_Madrid_CF.svg" class="logo"> Real Madrid 2</div>
-        <div><img src="https://upload.wikimedia.org/wikipedia/en/5/53/Arsenal_FC.svg" class="logo"> Arsenal 3</div>
-      </div>
+      <div class="match"><img src="images/real-madrid.png" class="logo"> Real Madrid 2 vs <img src="images/arsenal.png" class="logo"> Arsenal 3</div>
+      <div class="match"><img src="images/psg.png" class="logo"> Paris SG 5 vs <img src="images/barcelona.png" class="logo"> FC Barcelone 4</div>
     </div>
 
     <!-- Demi-finales -->
     <div class="round">
       <h3>Demi-finales</h3>
-      <div class="match">
-        <div><img src="https://upload.wikimedia.org/wikipedia/en/5/53/Arsenal_FC.svg" class="logo"> Arsenal</div>
-        <div><img src="https://upload.wikimedia.org/wikipedia/en/2/25/Paris_Saint-Germain_Logo.svg" class="logo"> Paris SG</div>
-      </div>
-      <div class="match">
-        <div><img src="https://upload.wikimedia.org/wikipedia/en/4/47/FC_Barcelona_%28crest%29.svg" class="logo"> FC Barcelone</div>
-        <div><img src="https://upload.wikimedia.org/wikipedia/en/0/0c/FC_Internazionale_Milano_2021.svg" class="logo"> Inter Milan</div>
-      </div>
+      <div class="match"><img src="images/arsenal.png" class="logo"> Arsenal vs <img src="images/psg.png" class="logo"> Paris SG</div>
+      <div class="match"><img src="images/inter-milan.png" class="logo"> Inter Milan vs <img src="images/man-city.png" class="logo"> Manchester City</div>
     </div>
 
     <!-- Finale -->
     <div class="round">
       <h3>Finale</h3>
-      <div class="match">
-        <div>Gagnant demi-finale 1</div>
-        <div>Gagnant demi-finale 2</div>
-      </div>
+      <div class="match">Gagnant Demi-finale 1 vs Gagnant Demi-finale 2</div>
     </div>
   </section>
 
@@ -117,7 +102,7 @@
   <!-- Audio Meme -->
   <audio id="alrightMemeSound" src="i-mean-its-alright-like.mp3"></audio>
 
-  <!-- Script -->
+  <!-- Scripts -->
   <script>
     document.querySelector('.btn-bet-now').addEventListener('click', function () {
       Swal.fire({
@@ -147,8 +132,7 @@
     });
   </script>
 
-  <script src="script.js"></script>
-
+  <!-- Panneau Admin -->
   <section class="admin-section" style="padding: 2rem; display: none;" id="adminPanel">
     <h2>Ajouter un match</h2>
     <form id="addMatchForm">
@@ -160,5 +144,6 @@
     </form>
   </section>
 
+  <script src="script.js"></script>
 </body>
 </html>
