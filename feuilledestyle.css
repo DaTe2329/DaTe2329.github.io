@@ -197,3 +197,98 @@ footer {
   font-weight: bold;
   color: green;
 }
+
+/* Styles pour le tableau des matchs (bracket) */
+.round {
+  margin: 20px auto;
+  width: 80%;
+  text-align: center;
+}
+
+.round h2 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.match {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.match div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.match .logo {
+  width: 50px;
+  height: auto;
+  margin-bottom: 5px;
+}
+
+.match .score {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.match .team-name {
+  font-size: 16px;
+}
+
+.match .team-name img {
+  width: 35px;
+  height: 35px;
+  margin-bottom: 5px;
+}
+
+.match button {
+  background-color: #007bff;
+  color: white;
+  padding: 5px 15px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.match button:hover {
+  background-color: #0056b3;
+}
+
+/* Styles pour les sections de chaque round */
+.round .match {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.round .match div {
+  width: 45%;
+}
+
+.final .match {
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.final .match div {
+  width: 50%;
+}
+
+/* Alignement des sections demi-finales et finale */
+.final {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+/* Huitièmes, quarts, demies, finale */
+.final h2 {
+  margin-top: 40px;
+  font-size: 26px;
+  color: #333;
+}
