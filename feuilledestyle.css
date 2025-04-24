@@ -333,19 +333,20 @@ footer {
   color: #333;
 }
 
-/* Style du bouton "Retour à l'accueil" */
+/* Retour à l'accueil button (same style as the button in tableau section) */
 .btn-home {
-  display: inline-block;
   padding: 10px 20px;
   font-size: 18px;
-  background-color: #ff5c5c; /* Couleur rouge pour attirer l'attention */
+  background-color: #007bff; /* Same color as the bet button */
   color: #fff;
   text-decoration: none;
   border-radius: 5px;
   margin-top: 20px;
+  display: inline-block;
+  cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
 .btn-home:hover {
-  background-color: #e03e3e; /* Une couleur plus sombre au survol */
+  background-color: #0056b3; /* Same hover effect as the bet button */
 }
