@@ -332,3 +332,20 @@ footer {
   font-size: 26px;
   color: #333;
 }
+
+/* Style du bouton "Retour à l'accueil" */
+.btn-home {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 18px;
+  background-color: #ff5c5c; /* Couleur rouge pour attirer l'attention */
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  margin-top: 20px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-home:hover {
+  background-color: #e03e3e; /* Une couleur plus sombre au survol */
+}
