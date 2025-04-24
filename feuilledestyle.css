@@ -41,8 +41,9 @@ body {
   color: #ff5c5c;
 }
 
-/* Main Section */
-.main-section {
+/* Main Section (For both index and equipes) */
+.main-section,
+.teams-section {
   text-align: center;
   padding: 4rem 2rem;
   background-color: #fff;
@@ -51,16 +52,19 @@ body {
   border-radius: 8px;
 }
 
-.main-section h2 {
+.main-section h2,
+.teams-section h2 {
   font-size: 36px;
   margin-bottom: 20px;
 }
 
-.main-section p {
+.main-section p,
+.teams-section p {
   font-size: 18px;
   margin-bottom: 30px;
 }
 
+/* Button Styling (For index page) */
 .btn-bet-now {
   padding: 10px 20px;
   font-size: 18px;
@@ -73,6 +77,41 @@ body {
 
 .btn-bet-now:hover {
   background-color: #0056b3;
+}
+
+/* Styles for the Team List in Equipes Page */
+.teams-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.team-item {
+  display: flex;
+  align-items: center;
+  margin: 15px;
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 250px;
+}
+
+.team-name {
+  font-size: 18px;
+  font-weight: 600;
+  margin-right: 15px;
+  color: #333;
+}
+
+.team-logo {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
 }
 
 /* Matches Section */
@@ -134,6 +173,7 @@ footer {
   color: #fff;
   padding: 20px 0;
 }
+
 /* Connexion Section */
 .connexion-section {
   padding: 3rem 2rem;
