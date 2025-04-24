@@ -16,19 +16,19 @@
         <img src="ae24868e092542c1a54f740481691587-free.png" alt="PariezFoot Logo" />
       </div>
       <ul class="nav-links">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#matches">Matchs</a></li>
-        <li><a href="#about">About</a></li>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="tableau.html">Tableau</a></li>
+        <li><a href="equipes.html">Équipes</a></li> <!-- Nouveau lien vers la page des équipes -->
+        <li><a href="#about">À propos</a></li>
         <li><a href="#contact">Contact</a></li>
         <li><a href="inscription.html">Inscription</a></li>
-        <li><a href="tableau.html" target="_blank">Tableau</a></li>
       </ul>
     </nav>
   </header>
 
   <!-- Main Section -->
   <section id="home" class="main-section">
-    <h2>Bienvenue sur PariezFoot!</h2>
+    <h2>Bienvenues sur PariezFoot!</h2>
     <p>La victoire est à portée de clic. Pariez maintenant !</p>
     <button class="btn-bet-now">Placer un pari maintenant</button>
   </section>
@@ -50,30 +50,6 @@
         <button>Placez votre pari</button>
       </li>
     </ul>
-  </section>
-
-  <!-- About Section -->
-  <section id="about" class="main-section">
-    <h2>À propos</h2>
-    <p>PariezFoot est une plateforme passionnée dédiée aux fans de football et de paris sportifs. Notre objectif est de rendre chaque match excitant et chaque pari simple et sécurisé.</p>
-  </section>
-
-  <!-- Contact Section -->
-  <section id="contact" class="main-section">
-    <h2>Contact</h2>
-    <p>Pour toute question ou assistance, veuillez nous contacter à <a href="mailto:support@pariezfoot.com">support@pariezfoot.com</a>.</p>
-  </section>
-
-  <!-- Admin Add Match Section (cachée par défaut) -->
-  <section class="admin-section" style="padding: 2rem; display: none;" id="adminPanel">
-    <h2>Ajouter un match</h2>
-    <form id="addMatchForm">
-      <input type="text" placeholder="Équipe 1" id="teamA" required />
-      <input type="text" placeholder="Équipe 2" id="teamB" required />
-      <input type="datetime-local" id="matchDate" required />
-      <input type="number" step="0.1" placeholder="Cote" id="matchOdds" required />
-      <button type="submit">Ajouter le match</button>
-    </form>
   </section>
 
   <!-- Footer -->
@@ -115,5 +91,7 @@
   </script>
 
   <script src="script.js"></script>
+
 </body>
+
 </html>
