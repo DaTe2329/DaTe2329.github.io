@@ -1,116 +1,174 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tableau des Équipes - Ligue des Champions 2024/2025</title>
-  <link rel="stylesheet" href="feuilledestyle.css">
-  <style>
-    body {
-      font-family: 'Roboto', sans-serif;
-      background-color: #f4f4f4;
-      color: #333;
-      margin: 0;
-      padding: 0;
-    }
-    
-    /* Bouton retour */
-    .retour-btn {
-      display: inline-block;
-      margin: 20px;
-      padding: 10px 20px;
-      background-color: #ff5c5c;
-      color: white;
-      border: none;
-      border-radius: 6px;
-      font-size: 16px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-
-    .retour-btn:hover {
-      background-color: #e04848;
-    }
-
-    .teams-section {
-      max-width: 800px;
-      margin: 40px auto;
-      padding: 20px;
-      background-color: #fff;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    }
-
-    .teams-section h2 {
-      text-align: center;
-      font-size: 28px;
-      margin-bottom: 20px;
-    }
-
-    .team-list {
-      list-style-type: none;
-      padding: 0;
-    }
-
-    .team-list li {
-      font-size: 18px;
-      padding: 8px 0;
-      border-bottom: 1px solid #ddd;
-    }
-
-    .team-list li:last-child {
-      border-bottom: none;
-    }
-
-  </style>
+  <title>Les équipes de la Ligue des Champions 2024/2025</title>
+  <link href="feuilledestyle.css" rel="stylesheet" type="text/css" />
 </head>
-<body>
 
-  <!-- Bouton retour -->
-  <button class="retour-btn" onclick="window.location.href='index.html'">← Retour à l'accueil</button>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo">
+        <img src="ae24868e092542c1a54f740481691587-free.png" alt="PariezFoot Logo" />
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="tableau.html">Tableau</a></li>
+        <li><a href="equipes.html">Équipes</a></li>
+        <li><a href="#about">À propos</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="inscription.html">Inscription</a></li>
+      </ul>
+    </nav>
+  </header>
 
   <!-- Section des équipes -->
-  <div class="teams-section">
-    <h2>Équipes Participantes - Ligue des Champions 2024/2025</h2>
-    <ul class="team-list">
-      <li>Arsenal FC</li>
-      <li>FC Barcelona</li>
-      <li>FC Internazionale Milano</li>
-      <li>Paris Saint-Germain</li>
-      <li>Aston Villa FC</li>
-      <li>Borussia Dortmund</li>
-      <li>FC Bayern München</li>
-      <li>Real Madrid C.F.</li>
-      <li>Atlético de Madrid</li>
-      <li>SL Benfica</li>
-      <li>Club Brugge KV</li>
-      <li>Feyenoord</li>
-      <li>Bayer 04 Leverkusen</li>
-      <li>LOSC Lille</li>
-      <li>Liverpool FC</li>
-      <li>PSV Eindhoven</li>
-      <li>Atalanta BC</li>
-      <li>Stade Brestois 29</li>
-      <li>Celtic FC</li>
-      <li>Juventus</li>
-      <li>Manchester City</li>
-      <li>AC Milan</li>
-      <li>AS Monaco</li>
-      <li>Sporting Clube de Portugal</li>
-      <li>Bologna FC 1909</li>
-      <li>FK Crvena Zvezda</li>
-      <li>Girona FC</li>
-      <li>GNK Dinamo</li>
-      <li>RB Leipzig</li>
-      <li>ŠK Slovan Bratislava</li>
-      <li>FC Salzburg</li>
-      <li>FC Shakhtar Donetsk</li>
-      <li>AC Sparta Praha</li>
-      <li>SK Sturm Graz</li>
-      <li>VfB Stuttgart</li>
-      <li>BSC Young Boys</li>
+  <section id="teams" class="teams-section">
+    <h2>Liste des équipes de la Ligue des Champions 2024/2025</h2>
+    <ul class="teams-list">
+      <li class="team-item">
+        <span class="team-name">AC Milan</span>
+        <img class="team-logo" src="images/ac-milan-logo.png" alt="AC Milan Logo">
+      </li>
+      <li class="team-item">
+        <span class="team-name">AC Sparta Praha</span>
+        <img class="team-logo" src="images/sparta-praha-logo.png" alt="Sparta Praha Logo">
+      </li>
+      <li class="team-item">
+        <span class="team-name">Aston Villa FC</span>
+        <img class="team-logo" src="images/aston-villa-logo.png" alt="Aston Villa Logo">
+      </li>
+      <li class="team-item">
+        <span class="team-name">Arsenal FC</span>
+        <img class="team-logo" src="images/arsenal-logo.png" alt="Arsenal Logo">
+      </li>
+      <li class="team-item">
+        <span class="team-name">Atalanta BC</span>
+        <img class="team-logo" src="images/atalanta-logo.png" alt="Atalanta Logo">
+      </li>
+      <li class="team-item">
+        <span class="team-name">Atlético de Madrid</span>
+        <img class="team-logo" src="images/atletico-madrid-logo.png" alt="Atlético Madrid Logo">
+      </li>
+      <li class="team-item">
+        <span class="team-name">Bayer 04 Leverkusen</span>
+        <img class="team-logo" src="images/leverkusen-logo.png" alt="Leverkusen Logo">
+      </li>
+      <li class="team-item">
+        <span class="team-name">Bologna FC 1909</span>
+        <img class="team-logo" src="images/bologna-logo.png" alt="Bologna Logo">
+      </li>
+      <li class="team-item">
+        <span class="team-name">Borussia Dortmund</span>
+        <img class="team-logo" src="images/dortmund-logo.png" alt="Dortmund Logo">
+      </li>
+      <li class="team-item">
+        <span class="team-name">Club Brugge KV</span>
+        <img class="team-logo" src="images/club-brugge-logo.png" alt="Club Brugge Logo">
+      </li>
+      <li class="team-item">
+        <span class="team-name">Celtic FC</span>
+        <img class="team-logo" src="images/celtic-logo.png" alt="Celtic Logo">
+      </li>
+      <li class="team-item">
+        <span class="team-name">FC Bayern München</span>
+        <img class="team-logo" src="images/bayern-munchen-logo.png" alt="Bayern München Logo">
+      </li>
+      <li class="team-item">
+        <span class="team-name">FC Barcelona</span>
+        <img class="team-logo" src="images/barcelona-logo.png" alt="Barcelona Logo">
+      </li>
+      <li class="team-item">
+        <span class="team-name">FC Internazionale Milano</span>
+        <img class="team-logo" src="images/inter-milan-logo.png" alt="Inter Milan Logo">
+      </li>
+      <li class="team-item">
+        <span class="team-name">FC Shakhtar Donetsk</span>
+        <img class="team-logo" src="images/shakhtar-logo.png" alt="Shakhtar Donetsk Logo">
+      </li>
+      <li class="team-item">
+        <span class="team-name">FC Salzburg</span>
+        <img class="team-logo" src="images/salzburg-logo.png" alt="Salzburg Logo">
+      </li>
+      <li class="team-item">
+        <span class="team-name">Girona FC</span>
+        <img class="team-logo" src="images/girona-logo.png" alt="Girona Logo">
+      </li>
+      <li class="team-item">
+        <span class="team-name">GNK Dinamo</span>
+        <img class="team-logo" src="images/dinamo-logo.png" alt="Dinamo Logo">
+      </li>
+      <li class="team-item">
+        <span class="team-name">Juventus</span>
+        <img class="team-logo" src="images/juventus-logo.png" alt="Juventus Logo">
+      </li>
+      <li class="team-item">
+        <span class="team-name">Liverpool FC</span>
+        <img class="team-logo" src="images/liverpool-logo.png" alt="Liverpool Logo">
+      </li>
+      <li class="team-item">
+        <span class="team-name">LOSC Lille</span>
+        <img class="team-logo" src="images/lille-logo.png" alt="Lille Logo">
+      </li>
+      <li class="team-item">
+        <span class="team-name">Manchester City</span>
+        <img class="team-logo" src="images/man-city-logo.png" alt="Manchester City Logo">
+      </li>
+      <li class="team-item">
+        <span class="team-name">Monaco</span>
+        <img class="team-logo" src="images/monaco-logo.png" alt="Monaco Logo">
+      </li>
+      <li class="team-item">
+        <span class="team-name">Paris Saint-Germain</span>
+        <img class="team-logo" src="images/psg-logo.png" alt="PSG Logo">
+      </li>
+      <li class="team-item">
+        <span class="team-name">PSV Eindhoven</span>
+        <img class="team-logo" src="images/psv-logo.png" alt="PSV Logo">
+      </li>
+      <li class="team-item">
+        <span class="team-name">RB Leipzig</span>
+        <img class="team-logo" src="images/leipzig-logo.png" alt="Leipzig Logo">
+      </li>
+      <li class="team-item">
+        <span class="team-name">Real Madrid C.F.</span>
+        <img class="team-logo" src="images/real-madrid-logo.png" alt="Real Madrid Logo">
+      </li>
+      <li class="team-item">
+        <span class="team-name">SL Benfica</span>
+        <img class="team-logo" src="images/benfica-logo.png" alt="Benfica Logo">
+      </li>
+      <li class="team-item">
+        <span class="team-name">SK Sturm Graz</span>
+        <img class="team-logo" src="images/sturm-graz-logo.png" alt="Sturm Graz Logo">
+      </li>
+      <li class="team-item">
+        <span class="team-name">ŠK Slovan Bratislava</span>
+        <img class="team-logo" src="images/slovan-bratislava-logo.png" alt="Slovan Bratislava Logo">
+      </li>
+      <li class="team-item">
+        <span class="team-name">Sporting Clube de Portugal</span>
+        <img class="team-logo" src="images/sporting-logo.png" alt="Sporting Logo">
+      </li>
+      <li class="team-item">
+        <span class="team-name">VfB Stuttgart</span>
+        <img class="team-logo" src="images/stuttgart-logo.png" alt="Stuttgart Logo">
+      </li>
+      <li class="team-item">
+        <span class="team-name">Young Boys</span>
+        <img class="team-logo" src="images/young-boys-logo.png" alt="Young Boys Logo">
+      </li>
     </ul>
-  </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 PariezFoot. Tous droits réservés.</p>
+  </footer>
 
 </body>
+
 </html>
