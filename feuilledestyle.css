@@ -79,6 +79,24 @@ body {
   background-color: #0056b3;
 }
 
+/* Retour à l'accueil button (same style as the red button in the tableau section) */
+.btn-home {
+  padding: 10px 20px;
+  font-size: 18px;
+  background-color: #dc3545; /* Red color, same as the button in Tableau */
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  margin-top: 20px;
+  display: inline-block;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-home:hover {
+  background-color: #c82333; /* Darker red on hover */
+}
+
 /* Styles for the Team List in Equipes Page */
 .teams-list {
   list-style: none;
@@ -331,22 +349,4 @@ footer {
   margin-top: 40px;
   font-size: 26px;
   color: #333;
-}
-
-/* Retour à l'accueil button (same style as the button in tableau section) */
-.btn-home {
-  padding: 10px 20px;
-  font-size: 18px;
-  background-color: #007bff; /* Same color as the bet button */
-  color: #fff;
-  text-decoration: none;
-  border-radius: 5px;
-  margin-top: 20px;
-  display: inline-block;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.btn-home:hover {
-  background-color: #0056b3; /* Same hover effect as the bet button */
 }
