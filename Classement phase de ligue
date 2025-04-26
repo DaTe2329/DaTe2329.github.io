@@ -1,0 +1,154 @@
+class Team:
+    def __init__(self, name, country, logo, points=0, played=0, wins=0, draws=0, losses=0, gf=0, ga=0):
+        self.name = name
+        self.country = country
+        self.logo = logo
+        self.points = points
+        self.played = played
+        self.wins = wins
+        self.draws = draws
+        self.losses = losses
+        self.gf = gf  # goals for
+        self.ga = ga  # goals against
+    
+    def goal_difference(self):
+        return self.gf - self.ga
+    
+    def update(self, gf, ga):
+        self.played += 1
+        self.gf += gf
+        self.ga += ga
+        
+        if gf > ga:
+            self.wins += 1
+            self.points += 3
+        elif gf == ga:
+            self.draws += 1
+            self.points += 1
+        else:
+            self.losses += 1
+
+class Group:
+    def __init__(self, letter):
+        self.letter = letter
+        self.teams = []
+    
+    def add_team(self, team):
+        self.teams.append(team)
+    
+    def standings(self):
+        return sorted(self.teams, key=lambda x: (-x.points, -x.goal_difference(), -x.gf, x.name))
+
+def create_all_groups():
+    groups = []
+    
+    # Group A
+    group_a = Group('A')
+    group_a.add_team(Team("Bayern Munich", "Germany", "🔴", 12, 4, 4, 0, 0, 12, 5))
+    group_a.add_team(Team("Manchester United", "England", "😈", 6, 4, 2, 0, 2, 8, 9))
+    group_a.add_team(Team("Galatasaray", "Turkey", "🟡🔴", 4, 4, 1, 1, 2, 7, 9))
+    group_a.add_team(Team("FC Copenhagen", "Denmark", "🔵", 1, 4, 0, 1, 3, 5, 9))
+    groups.append(group_a)
+    
+    # Group B
+    group_b = Group('B')
+    group_b.add_team(Team("Arsenal", "England", "🔴⚪", 9, 4, 3, 0, 1, 9, 4))
+    group_b.add_team(Team("PSV Eindhoven", "Netherlands", "🔴⚪", 5, 4, 1, 2, 1, 6, 7))
+    group_b.add_team(Team("Lens", "France", "🔴🟡", 5, 4, 1, 2, 1, 5, 6))
+    group_b.add_team(Team("Sevilla", "Spain", "⚪🔴", 2, 4, 0, 2, 2, 5, 8))
+    groups.append(group_b)
+    
+    # Group C
+    group_c = Group('C')
+    group_c.add_team(Team("Real Madrid", "Spain", "⚪", 12, 4, 4, 0, 0, 9, 3))
+    group_c.add_team(Team("Napoli", "Italy", "🔵", 7, 4, 2, 1, 1, 7, 5))
+    group_c.add_team(Team("Braga", "Portugal", "🔴", 3, 4, 1, 0, 3, 5, 8))
+    group_c.add_team(Team("Union Berlin", "Germany", "🔴⚪", 1, 4, 0, 1, 3, 3, 8))
+    groups.append(group_c)
+    
+    # Group D
+    group_d = Group('D')
+    group_d.add_team(Team("Real Sociedad", "Spain", "🔵⚪", 8, 4, 2, 2, 0, 7, 3))
+    group_d.add_team(Team("Inter Milan", "Italy", "🔵⚫", 8, 4, 2, 2, 0, 7, 4))
+    group_d.add_team(Team("RB Salzburg", "Austria", "🔴⚪", 3, 4, 1, 0, 3, 4, 7))
+    group_d.add_team(Team("Benfica", "Portugal", "🔴⚪", 1, 4, 0, 1, 3, 3, 7))
+    groups.append(group_d)
+    
+    # Group E
+    group_e = Group('E')
+    group_e.add_team(Team("Atletico Madrid", "Spain", "🔴⚪", 8, 4, 2, 2, 0, 11, 5))
+    group_e.add_team(Team("Lazio", "Italy", "🔵", 7, 4, 2, 1, 1, 6, 5))
+    group_e.add_team(Team("Feyenoord", "Netherlands", "🔴⚪⚫", 6, 4, 2, 0, 2, 8, 6))
+    group_e.add_team(Team("Celtic", "Scotland", "🟢⚪", 1, 4, 0, 1, 3, 3, 12))
+    groups.append(group_e)
+    
+    # Group F
+    group_f = Group('F')
+    group_f.add_team(Team("Borussia Dortmund", "Germany", "🟡⚫", 7, 4, 2, 1, 1, 4, 3))
+    group_f.add_team(Team("Paris Saint-Germain", "France", "🔵🔴", 6, 4, 2, 0, 2, 7, 6))
+    group_f.add_team(Team("AC Milan", "Italy", "🔴⚫", 5, 4, 1, 2, 1, 4, 5))
+    group_f.add_team(Team("Newcastle United", "England", "⚫⚪", 4, 4, 1, 1, 2, 5, 6))
+    groups.append(group_f)
+    
+    # Group G
+    group_g = Group('G')
+    group_g.add_team(Team("Manchester City", "England", "🔵⚪", 12, 4, 4, 0, 0, 12, 4))
+    group_g.add_team(Team("RB Leipzig", "Germany", "🔴⚪", 9, 4, 3, 0, 1, 11, 6))
+    group_g.add_team(Team("Young Boys", "Switzerland", "🟡⚫", 1, 4, 0, 1, 3, 5, 12))
+    group_g.add_team(Team("Red Star Belgrade", "Serbia", "🔴⚪", 1, 4, 0, 1, 3, 5, 11))
+    groups.append(group_g)
+    
+    # Group H
+    group_h = Group('H')
+    group_h.add_team(Team("Barcelona", "Spain", "🔵🔴", 9, 4, 3, 0, 1, 9, 3))
+    group_h.add_team(Team("FC Porto", "Portugal", "🔵⚪", 9, 4, 3, 0, 1, 10, 5))
+    group_h.add_team(Team("Shakhtar Donetsk", "Ukraine", "🟠⚫", 6, 4, 2, 0, 2, 6, 7))
+    group_h.add_team(Team("Royal Antwerp", "Belgium", "🔴⚪", 0, 4, 0, 0, 4, 3, 13))
+    groups.append(group_h)
+    
+    return groups
+
+def display_standings(groups):
+    for group in groups:
+        print(f"\n\033[1mGroupe {group.letter}\033[0m")
+        print(f"{'Pos':<4} {'Team':<25} {'Pts':<4} {'P':<3} {'W':<3} {'D':<3} {'L':<3} {'GF':<3} {'GA':<3} {'GD':<4} {'Form':<5}")
+        print("-"*80)
+        
+        for i, team in enumerate(group.standings(), 1):
+            form = ""
+            if team.played > 0:
+                form = "W"*team.wins + "D"*team.draws + "L"*team.losses
+            
+            print(f"{i:<4} {team.logo} {team.name:<22} {team.points:<4} {team.played:<3} "
+                  f"{team.wins:<3} {team.draws:<3} {team.losses:<3} {team.gf:<3} {team.ga:<3} "
+                  f"{team.goal_difference():+3} {form:<5}")
+
+def export_markdown(groups, filename="ucl_standings.md"):
+    with open(filename, "w", encoding="utf-8") as f:
+        f.write("# UEFA Champions League 2024-2025 Standings\n\n")
+        f.write("Current group stage standings with all teams, logos and points.\n\n")
+        
+        for group in groups:
+            f.write(f"## Group {group.letter}\n\n")
+            f.write("| Pos | Logo | Team | Country | Pts | P | W | D | L | GF | GA | GD | Form |\n")
+            f.write("|-----|------|------|---------|-----|---|---|---|---|----|----|----|------|\n")
+            
+            for i, team in enumerate(group.standings(), 1):
+                form = ""
+                if team.played > 0:
+                    form = "✅"*team.wins + "⚪"*team.draws + "❌"*team.losses
+                
+                f.write(f"| {i} | {team.logo} | {team.name} | {team.country} | {team.points} | {team.played} | "
+                       f"{team.wins} | {team.draws} | {team.losses} | {team.gf} | {team.ga} | "
+                       f"{team.goal_difference():+} | {form} |\n")
+            f.write("\n")
+        
+        f.write("\n> Last updated: November 2023 (Matchday 4 results)\n")
+        f.write("> Logos represented by emojis\n")
+
+# Main execution
+if __name__ == "__main__":
+    groups = create_all_groups()
+    display_standings(groups)
+    export_markdown(groups)
+    print("\nStandings exported to 'ucl_standings.md' (Markdown format for GitHub)")
