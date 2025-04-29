@@ -1,14 +1,11 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PariezFoot - La victoire est à portée de clic. Pariez maintenant !</title>
+  <title>Les équipes de la Ligue des Champions 2024/2025</title>
   <link href="feuilledestyle.css" rel="stylesheet" type="text/css" />
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
-
 <body>
   <header>
     <nav class="navbar">
@@ -18,7 +15,7 @@
       <ul class="nav-links">
         <li><a href="index.html">Accueil</a></li>
         <li><a href="tableau.html">Tableau</a></li>
-        <li><a href="equipes.html">Équipes</a></li> <!-- Nouveau lien vers la page des équipes -->
+        <li><a href="equipes.html">Équipes</a></li>
         <li><a href="#about">À propos</a></li>
         <li><a href="#contact">Contact</a></li>
         <li><a href="inscription.html">Inscription</a></li>
@@ -26,72 +23,27 @@
     </nav>
   </header>
 
-  <!-- Main Section -->
-  <section id="home" class="main-section">
-    <h2>Bienvenues sur PariezFoot!</h2>
-    <p>La victoire est à portée de clic. Pariez maintenant !</p>
-    <button class="btn-bet-now">Placer un pari maintenant</button>
+  <section id="teams" class="teams-section">
+    <h2>Liste des équipes de la Ligue des Champions 2024/2025</h2>
+    <ul class="teams-list">
+      <!-- Liste des équipes sera injectée ici -->
+    </ul>
+    <div class="back-to-home">
+      <a href="index.html" class="btn-back-home">Retour à l'Accueil</a>
+    </div>
   </section>
 
-  <!-- Matches Section -->
-  <section id="matches" class="matches-section">
-    <h2>Matchs à venir</h2>
+  <section class="matches-section">
+    <h2>Matchs en Direct</h2>
     <ul class="match-list">
-      <li class="match-card">
-        <h3>Equipe A vs Equipe B</h3>
-        <p>Date: 10 Avril 2025</p>
-        <p>Cote: 2.5</p>
-        <button>Placez votre pari</button>
-      </li>
-      <li class="match-card">
-        <h3>Equipe C vs Equipe D</h3>
-        <p>Date: 11 Avril 2025</p>
-        <p>Cote: 3.0</p>
-        <button>Placez votre pari</button>
-      </li>
+      <!-- Liste des matchs en direct sera injectée ici -->
     </ul>
   </section>
 
-  <!-- Footer -->
   <footer>
     <p>&copy; 2025 PariezFoot. Tous droits réservés.</p>
   </footer>
 
-  <!-- Audio Meme -->
-  <audio id="alrightMemeSound" src="i-mean-its-alright-like.mp3"></audio>
-
-  <!-- Script -->
-  <script>
-    document.querySelector('.btn-bet-now').addEventListener('click', function () {
-      Swal.fire({
-        title: 'Let\'s gooo!',
-        text: 'Vous devez être connecté pour effectuer cette action...',
-        icon: 'info',
-      });
-    });
-
-    const betButtons = document.querySelectorAll('.match-card button');
-    betButtons.forEach(button => {
-      button.addEventListener('click', function () {
-        Swal.fire({
-          title: 'Désolé cette fonctionnalité n\'est pas encore disponible',
-          text: "Revenez plus tard !",
-          imageUrl: 'https://i.kym-cdn.com/entries/icons/facebook/000/044/064/alright.jpg',
-          imageWidth: 400,
-          imageHeight: 225,
-          imageAlt: 'I mean its alright meme',
-          didOpen: () => {
-            const sound = document.getElementById('alrightMemeSound');
-            sound.currentTime = 0;
-            sound.play();
-          }
-        });
-      });
-    });
-  </script>
-
   <script src="script.js"></script>
-
 </body>
-
 </html>
