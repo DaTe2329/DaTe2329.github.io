@@ -1,16 +1,18 @@
 const API_URL = 'https://api.football-data.org/v4/matches';
-const API_KEY = '	ea35b83b5e5e472bb5b09512025aa953'; 
+const API_KEY = 'ea35b83b5e5e472bb5b09512025aa953';  
+
 
 function fetchLiveMatches() {
   fetch(API_URL, {
     headers: {
-      'X-Auth-Token': API_KEY
+      'X-Auth-Token': API_KEY  
     }
   })
   .then(response => response.json())
   .then(data => {
-    const matches = data.matches;
+    const matches = data.matches; t
     const matchList = document.querySelector('.match-list');
+    
     
     matches.forEach(match => {
       const matchCard = `
@@ -21,7 +23,12 @@ function fetchLiveMatches() {
           <button>Placer un pari</button>
         </li>
       `;
-      matchList.innerHTML += matchCard;
+      matchList.innerHTML += matchCard;  
     });
   })
-  .catch(error => console.error('
+  .catch(error => console.error('Erreur lors de la récupération des matchs:', error));
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  fetchLiveMatches();
+});
