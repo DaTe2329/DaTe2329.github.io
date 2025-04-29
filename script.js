@@ -1,7 +1,6 @@
 const API_URL = 'https://api.football-data.org/v4/matches';
-const API_KEY = 'VOTRE_CLÉ_API'; // Remplacez par votre propre clé API Football-Data.org
+const API_KEY = '	ea35b83b5e5e472bb5b09512025aa953'; 
 
-// Récupérer les matchs en direct
 function fetchLiveMatches() {
   fetch(API_URL, {
     headers: {
