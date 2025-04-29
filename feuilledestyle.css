@@ -1,3 +1,4 @@
+/* Corps général */
 body {
   font-family: 'Roboto', sans-serif;
   margin: 0;
@@ -6,6 +7,7 @@ body {
   color: #333;
 }
 
+/* Navbar */
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -19,9 +21,15 @@ body {
   font-size: 24px;
 }
 
+.navbar .logo img {
+  height: 40px;
+}
+
 .nav-links {
   list-style: none;
   display: flex;
+  margin: 0;
+  padding: 0;
 }
 
 .nav-links li {
@@ -39,6 +47,7 @@ body {
   color: #ff5c5c;
 }
 
+/* Section principale & équipes */
 .main-section,
 .teams-section {
   text-align: center;
@@ -55,6 +64,62 @@ body {
   margin-bottom: 20px;
 }
 
+/* Liste des équipes */
+.teams-list {
+  list-style: none; /* supprime les puces */
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.team-item {
+  background-color: #f5f5f5;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
+  width: 180px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+/* Émoji et nom */
+.team-name {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.team-flag {
+  font-size: 20px;
+  margin-right: 6px;
+}
+
+/* Bouton retour */
+.back-to-home {
+  margin-top: 2rem;
+}
+
+.btn-back-home {
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
+  background-color: #333;
+  color: #fff;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+
+.btn-back-home:hover {
+  background-color: #555;
+}
+
+/* Matches */
 .matches-section {
   padding: 2rem 2rem;
   background-color: #e9ecef;
@@ -106,6 +171,7 @@ body {
   background-color: #218838;
 }
 
+/* Pied de page */
 footer {
   text-align: center;
   background-color: #333;
@@ -113,37 +179,10 @@ footer {
   padding: 20px 0;
 }
 
-/* === Styles réintégrés pour la section Équipes === */
-.teams-list {
-  list-style: none;
-  padding: 0;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin-top: 20px;
-}
-
-.team-item {
-  display: flex;
-  align-items: center;
-  margin: 15px;
-  background-color: #fff;
-  padding: 10px;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  width: 250px;
-}
-
-.team-name {
-  font-size: 18px;
-  font-weight: 600;
-  margin-right: 15px;
-  color: #333;
-}
-
-.team-logo {
-  width: 40px;
-  height: 40px;
-  object-fit: contain;
+/* Responsive */
+@media (max-width: 768px) {
+  .team-item {
+    width: 100%;
+    max-width: 300px;
+  }
 }
