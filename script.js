@@ -1,33 +1,28 @@
-let clickCount = 0;
-document.querySelector('.logo').addEventListener('click', () => {
-  clickCount++;
-  if (clickCount >= 5) {
-    document.getElementById('adminPanel').style.display = 'block';
-    alert('Mode admin activé !');
-    clickCount = 0;
-  }
-});
+const API_URL = 'https://api.football-data.org/v4/matches';
+const API_KEY = 'VOTRE_CLÉ_API'; // Remplacez par votre propre clé API Football-Data.org
 
-document.getElementById('addMatchForm').addEventListener('submit', function (e) {
-  e.preventDefault();
-
-  const teamA = document.getElementById('teamA').value;
-  const teamB = document.getElementById('teamB').value;
-  const date = new Date(document.getElementById('matchDate').value).toLocaleString();
-  const odds = document.getElementById('matchOdds').value;
-
-  const matchList = document.querySelector('.match-list');
-
-  const matchCard = `
-    <li class="match-card">
-      <h3>${teamA} vs ${teamB}</h3>
-      <p>Date: ${date}</p>
-      <p>Cote: ${odds}</p>
-      <button>Placez votre pari</button>
-    </li>
-  `;
-
-  matchList.innerHTML += matchCard;
-
-  this.reset(); // Vide le formulaire
-});
+// Récupérer les matchs en direct
+function fetchLiveMatches() {
+  fetch(API_URL, {
+    headers: {
+      'X-Auth-Token': API_KEY
+    }
+  })
+  .then(response => response.json())
+  .then(data => {
+    const matches = data.matches;
+    const matchList = document.querySelector('.match-list');
+    
+    matches.forEach(match => {
+      const matchCard = `
+        <li class="match-card">
+          <h3>${match.homeTeam.name} vs ${match.awayTeam.name}</h3>
+          <p>Score: ${match.score.fullTime.homeTeam} - ${match.score.fullTime.awayTeam}</p>
+          <p>Stade: ${match.venue}</p>
+          <button>Placer un pari</button>
+        </li>
+      `;
+      matchList.innerHTML += matchCard;
+    });
+  })
+  .catch(error => console.error('
