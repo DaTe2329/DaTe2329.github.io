@@ -39,7 +39,8 @@ body {
   color: #ff5c5c;
 }
 
-.main-section, .teams-section {
+.main-section,
+.teams-section {
   text-align: center;
   padding: 4rem 2rem;
   background-color: #fff;
@@ -48,7 +49,8 @@ body {
   border-radius: 8px;
 }
 
-.main-section h2, .teams-section h2 {
+.main-section h2,
+.teams-section h2 {
   font-size: 36px;
   margin-bottom: 20px;
 }
@@ -111,3 +113,37 @@ footer {
   padding: 20px 0;
 }
 
+/* === Styles réintégrés pour la section Équipes === */
+.teams-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.team-item {
+  display: flex;
+  align-items: center;
+  margin: 15px;
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 250px;
+}
+
+.team-name {
+  font-size: 18px;
+  font-weight: 600;
+  margin-right: 15px;
+  color: #333;
+}
+
+.team-logo {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
