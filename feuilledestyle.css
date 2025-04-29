@@ -1,4 +1,3 @@
-/* Basic styling for the body */
 body {
   font-family: 'Roboto', sans-serif;
   margin: 0;
@@ -7,7 +6,6 @@ body {
   color: #333;
 }
 
-/* Navigation Menu */
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -41,9 +39,7 @@ body {
   color: #ff5c5c;
 }
 
-/* Main Section (For both index and equipes) */
-.main-section,
-.teams-section {
+.main-section, .teams-section {
   text-align: center;
   padding: 4rem 2rem;
   background-color: #fff;
@@ -52,87 +48,11 @@ body {
   border-radius: 8px;
 }
 
-.main-section h2,
-.teams-section h2 {
+.main-section h2, .teams-section h2 {
   font-size: 36px;
   margin-bottom: 20px;
 }
 
-.main-section p,
-.teams-section p {
-  font-size: 18px;
-  margin-bottom: 30px;
-}
-
-/* Button Styling (For index page) */
-.btn-bet-now {
-  padding: 10px 20px;
-  font-size: 18px;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  cursor: pointer;
-  border-radius: 5px;
-}
-
-.btn-bet-now:hover {
-  background-color: #0056b3;
-}
-
-/* Retour à l'accueil button (same style as the red button in the tableau section) */
-.btn-home {
-  padding: 10px 20px;
-  font-size: 18px;
-  background-color: #dc3545; /* Red color, same as the button in Tableau */
-  color: #fff;
-  text-decoration: none;
-  border-radius: 5px;
-  margin-top: 20px;
-  display: inline-block;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.btn-home:hover {
-  background-color: #c82333; /* Darker red on hover */
-}
-
-/* Styles for the Team List in Equipes Page */
-.teams-list {
-  list-style: none;
-  padding: 0;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin-top: 20px;
-}
-
-.team-item {
-  display: flex;
-  align-items: center;
-  margin: 15px;
-  background-color: #fff;
-  padding: 10px;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  width: 250px;
-}
-
-.team-name {
-  font-size: 18px;
-  font-weight: 600;
-  margin-right: 15px;
-  color: #333;
-}
-
-.team-logo {
-  width: 40px;
-  height: 40px;
-  object-fit: contain;
-}
-
-/* Matches Section */
 .matches-section {
   padding: 2rem 2rem;
   background-color: #e9ecef;
@@ -184,169 +104,9 @@ body {
   background-color: #218838;
 }
 
-/* Footer */
 footer {
   text-align: center;
   background-color: #333;
   color: #fff;
   padding: 20px 0;
-}
-
-/* Connexion Section */
-.connexion-section {
-  padding: 3rem 2rem;
-  background-color: #ffffff;
-  max-width: 500px;
-  margin: 40px auto;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
-}
-
-.connexion-section h2 {
-  text-align: center;
-  font-size: 28px;
-  margin-bottom: 30px;
-  color: #333;
-}
-
-#loginForm {
-  display: flex;
-  flex-direction: column;
-}
-
-#loginForm label {
-  margin-bottom: 8px;
-  font-weight: 500;
-  color: #555;
-}
-
-#loginForm input {
-  padding: 12px;
-  margin-bottom: 20px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  font-size: 16px;
-  transition: border-color 0.3s ease;
-}
-
-#loginForm input:focus {
-  border-color: #007bff;
-  outline: none;
-}
-
-#loginForm button {
-  padding: 12px;
-  background-color: #007bff;
-  color: white;
-  font-size: 16px;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-#loginForm button:hover {
-  background-color: #0056b3;
-}
-
-#loginMessage {
-  text-align: center;
-  margin-top: 15px;
-  font-weight: bold;
-  color: green;
-}
-
-/* Styles pour le tableau des matchs (bracket) */
-.round {
-  margin: 20px auto;
-  width: 80%;
-  text-align: center;
-}
-
-.round h2 {
-  font-size: 24px;
-  color: #333;
-  margin-bottom: 15px;
-}
-
-.match {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 10px 0;
-}
-
-.match div {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.match .logo {
-  width: 50px;
-  height: auto;
-  margin-bottom: 5px;
-}
-
-.match .score {
-  font-size: 20px;
-  font-weight: bold;
-}
-
-.match .team-name {
-  font-size: 16px;
-}
-
-.match .team-name img {
-  width: 35px;
-  height: 35px;
-  margin-bottom: 5px;
-}
-
-.match button {
-  background-color: #007bff;
-  color: white;
-  padding: 5px 15px;
-  font-size: 16px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.match button:hover {
-  background-color: #0056b3;
-}
-
-/* Styles pour les sections de chaque round */
-.round .match {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-}
-
-.round .match div {
-  width: 45%;
-}
-
-.final .match {
-  justify-content: center;
-  margin-top: 30px;
-}
-
-.final .match div {
-  width: 50%;
-}
-
-/* Alignement des sections demi-finales et finale */
-.final {
-  display: flex;
-  justify-content: center;
-  text-align: center;
-}
-
-/* Huitièmes, quarts, demies, finale */
-.final h2 {
-  margin-top: 40px;
-  font-size: 26px;
-  color: #333;
 }
