@@ -15,18 +15,52 @@ function selectWinner(element, nextId) {
   // Si la case suivante existe, on y place le nom de l’équipe
   if (nextMatch) {
     nextMatch.textContent = teamName;
-    nextMatch.classList.remove('selected'); // on enlève l’ancien choix si jamais
+    nextMatch.classList.remove('selected');
   }
+
+  // Sauvegarder le tableau
+  saveBracket();
 }
 
 function resetBracket() {
   const allSlots = document.querySelectorAll('.match-slot');
 
   allSlots.forEach(slot => {
-    // On vide uniquement les slots générés dynamiquement
     if (slot.parentNode.id !== 'round-16') {
       slot.textContent = '';
     }
     slot.classList.remove('selected');
   });
+
+  // Supprimer la sauvegarde
+  localStorage.removeItem('bracketData');
 }
+
+function saveBracket() {
+  const slots = document.querySelectorAll('.match-slot');
+  const bracketData = {};
+
+  slots.forEach(slot => {
+    if (slot.id) {
+      bracketData[slot.id] = slot.textContent;
+    }
+  });
+
+  localStorage.setItem('bracketData', JSON.stringify(bracketData));
+}
+
+function loadBracket() {
+  const savedData = JSON.parse(localStorage.getItem('bracketData'));
+
+  if (savedData) {
+    for (const id in savedData) {
+      const slot = document.getElementById(id);
+      if (slot) {
+        slot.textContent = savedData[id];
+      }
+    }
+  }
+}
+
+// Charger les données sauvegardées au chargement de la page
+loadBracket();
