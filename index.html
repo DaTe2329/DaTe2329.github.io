@@ -2,8 +2,8 @@
 <html lang="fr">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>PariezFoot - La victoire est à portée de clic. Pariez maintenant !</title>
   <link href="feuilledestyle.css" rel="stylesheet" type="text/css" />
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -29,58 +29,75 @@
 
   <!-- Main Section -->
   <section id="home" class="main-section">
-    <h2>Bienvenues sur PariezFoot!</h2>
+    <h2>Bienvenue sur PariezFoot !</h2>
     <p>La victoire est à portée de clic. Pariez maintenant !</p>
     <button class="btn-bet-now">Placer un pari maintenant</button>
   </section>
 
-  <!-- Matches Section -->
+  <!-- Theme Toggle -->
+  <button id="theme-toggle">Mode Sombre</button>
+
+  <!-- Match Sections -->
   <section id="matches" class="matches-section">
-    <h2>Matchs en direct</h2>
-    <ul class="match-list">
-      <p>Chargement des scores en direct...</p>
-    </ul>
+    <h2>Matchs en Direct</h2>
+    <ul class="match-list live-matches"></ul>
+
+    <h2>Matchs à Venir</h2>
+    <ul class="match-list upcoming-matches"></ul>
+
+    <h2>Matchs Terminés</h2>
+    <ul class="match-list completed-matches"></ul>
   </section>
 
-  <!-- Footer -->
   <footer>
     <p>&copy; 2025 PariezFoot. Tous droits réservés.</p>
   </footer>
 
-  <!-- Scripts -->
   <script>
-    document.querySelector('.btn-bet-now').addEventListener('click', function () {
-      Swal.fire({
-        title: 'Let\'s gooo!',
-        text: 'Vous devez être connecté pour effectuer cette action...',
-        icon: 'info',
-      });
+    // Light/Dark mode toggle functionality
+    const themeToggleButton = document.getElementById('theme-toggle');
+    let isDarkMode = false;
+
+    themeToggleButton.addEventListener('click', () => {
+      isDarkMode = !isDarkMode;
+      document.body.classList.toggle('dark-mode', isDarkMode);
+      themeToggleButton.textContent = isDarkMode ? 'Mode Clair' : 'Mode Sombre';
     });
-  </script>
 
-  <script>
+    // Fetching live scores and filtering for Serie A, Ligue 1, and Champions League
     document.addEventListener('DOMContentLoaded', () => {
-      const matchList = document.querySelector('.match-list');
-      matchList.innerHTML = '<p>Chargement des scores en direct...</p>';
+      const liveMatchesList = document.querySelector('.live-matches');
+      const upcomingMatchesList = document.querySelector('.upcoming-matches');
+      const completedMatchesList = document.querySelector('.completed-matches');
 
-      fetch('https://v3.football.api-sports.io/fixtures?live=all', {
-        method: 'GET',
-        headers: {
-          'x-apisports-key': '72a513e931354e9769e2b1534c37c277'
-        }
-      })
+      const fetchMatches = () => {
+        liveMatchesList.innerHTML = '<p>Chargement des scores en direct...</p>';
+        upcomingMatchesList.innerHTML = '<p>Chargement des prochains matchs...</p>';
+        completedMatchesList.innerHTML = '<p>Chargement des matchs terminés...</p>';
+
+        fetch('https://v3.football.api-sports.io/fixtures?live=all', {
+          method: 'GET',
+          headers: {
+            'x-apisports-key': '72a513e931354e9769e2b1534c37c277'
+          }
+        })
         .then(response => response.json())
         .then(data => {
-          matchList.innerHTML = '';
-
           const fixtures = data.response;
 
           if (fixtures.length === 0) {
-            matchList.innerHTML = '<p>Aucun match en direct pour le moment.</p>';
+            liveMatchesList.innerHTML = '<p>Aucun match en direct pour le moment.</p>';
+            upcomingMatchesList.innerHTML = '<p>Aucun match à venir pour le moment.</p>';
+            completedMatchesList.innerHTML = '<p>Aucun match terminé pour le moment.</p>';
             return;
           }
 
-          fixtures.forEach((fixture, index) => {
+          const filteredMatches = fixtures.filter(fixture => {
+            const competitionName = fixture.league.name.toLowerCase();
+            return competitionName.includes('serie a') || competitionName.includes('ligue 1') || competitionName.includes('champions league');
+          });
+
+          filteredMatches.forEach(fixture => {
             const homeTeam = fixture.teams.home.name;
             const awayTeam = fixture.teams.away.name;
             const homeLogo = fixture.teams.home.logo;
@@ -88,11 +105,10 @@
             const homeScore = fixture.goals.home;
             const awayScore = fixture.goals.away;
             const time = fixture.fixture.status.elapsed;
+            const status = fixture.fixture.status.short;
 
             const matchCard = document.createElement('li');
             matchCard.classList.add('match-card');
-            matchCard.style.animationDelay = `${index * 0.1}s`;
-
             matchCard.innerHTML = `
               <h3>
                 <img src="${homeLogo}" alt="${homeTeam}" style="height: 20px; vertical-align: middle;"> ${homeTeam}
@@ -101,27 +117,31 @@
               </h3>
               <p>Score: ${homeScore} - ${awayScore}</p>
               <p>Minute: ${time ? time + "'" : "N/A"}</p>
+              <p>Status: ${status}</p>
               <button>Placez votre pari</button>
             `;
 
-            matchCard.querySelector('button').addEventListener('click', () => {
-              Swal.fire({
-                title: 'Fonctionnalité indisponible',
-                text: "Cette fonctionnalité n'est pas encore disponible. Revenez plus tard !",
-                icon: 'warning'
-              });
-            });
-
-            matchList.appendChild(matchCard);
+            // Add to respective sections based on match status
+            if (status === 'LIVE') {
+              liveMatchesList.appendChild(matchCard);
+            } else if (status === 'POSTPONED' || status === 'SCHEDULED') {
+              upcomingMatchesList.appendChild(matchCard);
+            } else {
+              completedMatchesList.appendChild(matchCard);
+            }
           });
         })
         .catch(error => {
           console.error('Erreur lors du chargement des scores :', error);
-          matchList.innerHTML = '<p>Impossible de charger les scores en direct.</p>';
+          liveMatchesList.innerHTML = '<p>Impossible de charger les scores en direct.</p>';
         });
+      };
+
+      // Fetch live data every 30 seconds
+      fetchMatches();
+      setInterval(fetchMatches, 30000);
     });
   </script>
-
 </body>
 
 </html>
