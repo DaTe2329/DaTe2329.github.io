@@ -1,3 +1,4 @@
+/* Corps général */
 body {
   font-family: 'Roboto', sans-serif;
   margin: 0;
@@ -6,6 +7,7 @@ body {
   color: #333;
 }
 
+/* Navbar */
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -20,7 +22,7 @@ body {
 }
 
 .navbar .logo img {
-  height: 200px;
+  height: 40px;
 }
 
 .nav-links {
@@ -64,7 +66,6 @@ body {
 
 /* Liste des équipes */
 .teams-list {
-  font-family: 'Roboto', sans-serif;
   list-style: none; /* supprime les puces */
   padding: 0;
   margin: 0;
@@ -96,6 +97,26 @@ body {
 .team-flag {
   font-size: 20px;
   margin-right: 6px;
+}
+
+/* Bouton retour */
+.back-to-home {
+  margin-top: 2rem;
+}
+
+.btn-back-home {
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
+  background-color: #333;
+  color: #fff;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+
+.btn-back-home:hover {
+  background-color: #555;
 }
 
 /* Matches */
@@ -164,62 +185,4 @@ footer {
     width: 100%;
     max-width: 300px;
   }
-}
-
-/* Animation: fadeInUp */
-@keyframes fadeInUp {
-  0% {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.match-card {
-  animation: fadeInUp 0.6s ease forwards;
-  opacity: 0; 
-}
-
-/* Default Light Theme */
-body {
-  background-color: #ffffff;
-  color: #333333;
-  font-family: Arial, sans-serif;
-  transition: background-color 0.3s, color 0.3s;
-}
-
-.navbar {
-  background-color: #fff;
-  color: #333;
-  padding: 10px;
-  border-bottom: 2px solid #ddd;
-}
-
-.nav-links li a {
-  color: #333;
-  text-decoration: none;
-  padding: 10px;
-}
-
-.match-card {
-  background-color: #f8f8f8;
-  border: 1px solid #ddd;
-  padding: 10px;
-  margin: 10px 0;
-  transition: background-color 0.3s;
-}
-
-button {
-  background-color: #007bff;
-  color: white;
-  padding: 10px;
-  border: none;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: #0056b3;
 }
