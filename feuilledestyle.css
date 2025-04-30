@@ -65,6 +65,7 @@ body {
 
 /* Liste des équipes */
 .teams-list {
+  font-family: 'Roboto', sans-serif;
   list-style: none; /* supprime les puces */
   padding: 0;
   margin: 0;
