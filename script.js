@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
   })
     .then(response => response.json())
     .then(data => {
-      matchList.innerHTML = ''; // Clear loading text
+      matchList.innerHTML = '';
 
       const fixtures = data.response;
 
@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
-      fixtures.forEach(fixture => {
+      fixtures.forEach((fixture, index) => {
         const homeTeam = fixture.teams.home.name;
         const awayTeam = fixture.teams.away.name;
         const homeLogo = fixture.teams.home.logo;
@@ -30,6 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const matchCard = document.createElement('li');
         matchCard.classList.add('match-card');
+        matchCard.style.animationDelay = `${index * 0.1}s`; 
         matchCard.innerHTML = `
           <h3>
             <img src="${homeLogo}" alt="${homeTeam}" style="height: 20px; vertical-align: middle;"> ${homeTeam}
@@ -40,9 +41,9 @@ document.addEventListener('DOMContentLoaded', () => {
           <p>Minute: ${time ? time + "'" : "N/A"}</p>
           <button>Placez votre pari</button>
         `;
+
         matchList.appendChild(matchCard);
       });
-
     })
     .catch(error => {
       console.error('Erreur lors du chargement des scores :', error);
