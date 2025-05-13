@@ -1,4 +1,4 @@
-class Team:
+class Team: 
     def __init__(self, name, logo, played, wins, draws, losses, points):
         self.name = name
         self.logo = logo
@@ -52,51 +52,192 @@ def create_ucl_standings():
     ]
     return teams
 
+def display_standings(teams):
+    print("LIGUE DES CHAMPIONS 2024-2025 - PHASE DE LIGUE")
+    print("="*90)
+    print(f"{'Pos':<4} {'Logo':<5} {'Équipe':<25} {'Pts':<5} {'MJ':<5} {'V':<5} {'N':<5} {'D':<5}")
+    print("-"*90)
+    
+    for i, team in enumerate(teams, 1):
+        print(f"{i:<4} {team.logo:<5} {team.name:<25} {team.points:<5} {team.played:<5} {team.wins:<5} {team.draws:<5} {team.losses:<5}")
+
 def export_html(teams, filename="ucl_standings.html"):
     with open(filename, "w", encoding="utf-8") as f:
         f.write("""<!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Les équipes de la Ligue des Champions 2024/2025</title>
-  <link href="feuilledestyle.css" rel="stylesheet" type="text/css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Classement Ligue des Champions 2024-2025</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 20px;
+      background: #f4f6f8;
+      color: #222;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    h1 {
+      color: #1a3e8c;
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+    }
+
+    .button-home {
+      background-color: #1a3e8c;
+      color: white;
+      border: none;
+      padding: 10px 16px;
+      font-size: 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      text-decoration: none;
+    }
+
+    .button-home:hover {
+      background-color: #133070;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      background-color: white;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    th {
+      background-color: #1a3e8c;
+      color: white;
+      padding: 12px;
+      text-align: left;
+    }
+
+    td {
+      padding: 10px;
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+
+    .logo {
+      text-align: center;
+      font-size: 1.2em;
+    }
+
+    .qualified {
+      background-color: #d4edda;
+    }
+
+    .playoffs {
+      background-color: #fff3cd;
+    }
+
+    .eliminated {
+      background-color: #f8d7da;
+    }
+
+    @media (max-width: 768px) {
+      th, td {
+        font-size: 0.9rem;
+        padding: 8px;
+      }
+
+      h1 {
+        font-size: 1.4rem;
+      }
+
+      .button-home {
+        font-size: 0.9rem;
+        padding: 8px 12px;
+      }
+    }
+
+    .legend {
+      margin-top: 30px;
+    }
+
+    .legend span {
+      display: inline-block;
+      padding: 4px 8px;
+      margin-right: 10px;
+      border-radius: 4px;
+    }
+
+    .green { background-color: #d4edda; }
+    .yellow { background-color: #fff3cd; }
+    .red { background-color: #f8d7da; }
+  </style>
 </head>
 <body>
+
   <header>
-    <nav class="navbar">
-      <div class="logo">
-        <img src="ae24868e092542c1a54f740481691587-free.png" alt="PariezFoot Logo" />
-      </div>
-      <ul class="nav-links">
-        <li><a href="index.html">Accueil</a></li>
-        <li><a href="tableau.html">Tableau</a></li>
-        <li><a href="equipes.html">Équipes</a></li>
-        <li><a href="#about">À propos</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <li><a href="inscription.html">Inscription</a></li>
-      </ul>
-    </nav>
+    <h1>Ligue des Champions 2024-2025 - Phase de Ligue</h1>
+    <a href="index.html" class="button-home">🏠 Retour à l'accueil</a>
   </header>
 
-  <!-- Section des équipes -->
-  <section id="teams" class="teams-section">
-    <h2>Liste des équipes de la Ligue des Champions 2024/2025</h2>
-    <ul class="teams-list">
-""")
-        for team in teams:
-            f.write(f"""      <li class="team-item"><span class="team-name">{team.logo} {team.name} ({team.points})</span></li>
-""")
-        f.write("""    </ul>
+  <p><em>Nouveau format avec 36 équipes – 8 journées</em></p>
 
-    <div class="back-to-home">
-      <a href="index.html" class="btn-back-home">Retour à l'Accueil</a>
-    </div>
-  </section>
+  <table>
+    <thead>
+      <tr>
+        <th>Pos</th>
+        <th>Logo</th>
+        <th>Équipe</th>
+        <th>Pts</th>
+        <th>MJ</th>
+        <th>V</th>
+        <th>N</th>
+        <th>D</th>
+      </tr>
+    </thead>
+    <tbody>
+""")
+        for i, team in enumerate(teams, 1):
+            if i <= 8:
+                row_class = "qualified"
+            elif i <= 24:
+                row_class = "playoffs"
+            else:
+                row_class = "eliminated"
 
-  <footer>
-    <p>&copy; 2025 PariezFoot. Tous droits réservés.</p>
-  </footer>
+            f.write(f"""      <tr class="{row_class}">
+        <td>{i}</td>
+        <td class="logo">{team.logo}</td>
+        <td>{team.name}</td>
+        <td>{team.points}</td>
+        <td>{team.played}</td>
+        <td>{team.wins}</td>
+        <td>{team.draws}</td>
+        <td>{team.losses}</td>
+      </tr>
+""")
+
+        f.write("""    </tbody>
+  </table>
+
+  <div class="legend">
+    <p><strong>Légende :</strong></p>
+    <ul>
+      <li><span class="green">1-8 : Qualification directe en huitièmes</span></li>
+      <li><span class="yellow">9-24 : Barrages de qualification</span></li>
+      <li><span class="red">25-36 : Éliminés</span></li>
+    </ul>
+  </div>
+
 </body>
 </html>
 """)
@@ -105,5 +246,6 @@ def export_html(teams, filename="ucl_standings.html"):
 if __name__ == "__main__":
     teams = create_ucl_standings()
     teams.sort(key=lambda t: t.points, reverse=True)
+    display_standings(teams)
     export_html(teams)
     print("\nClassement exporté dans 'ucl_standings.html'")
