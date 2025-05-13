@@ -8,7 +8,7 @@ class Team:
         self.losses = losses
         self.points = points
     
-    def goal_difference(self):  # Pour une future extension
+    def goal_difference(self):  # Extension possible
         return 0
 
 def create_ucl_standings():
@@ -22,10 +22,9 @@ def create_ucl_standings():
         Team("Bayer Leverkusen", "🔴⚫", 8, 5, 1, 2, 16),
         Team("Lille", "🔴", 8, 5, 1, 2, 16),
         Team("Aston Villa", "🔵", 8, 5, 1, 2, 16),
-        Team("Atalanta", "🔵⚫", 8, 4, 3, 1, 15),
         
         # Suite du classement
-        Team("Atalanta", "🔵⚫", 8, 4, 3, 1, 15),
+        Team("Borussia Dortmund", "🟡⚫", 8, 4, 3, 3, 15),
         Team("Borussia Dortmund", "🟡⚫", 8, 5, 0, 3, 15),
         Team("Real Madrid", "⚪", 8, 5, 0, 3, 15),
         Team("Bayern Munich", "🔴", 8, 5, 0, 3, 15),
@@ -105,9 +104,8 @@ def export_html(teams, filename="ucl_standings.html"):
         </thead>
         <tbody>
 """)
-        
         for i, team in enumerate(teams, 1):
-            # Détermination du statut
+            # Statut
             if i <= 8:
                 row_class = "qualified"
             elif i <= 24:
@@ -142,12 +140,10 @@ def export_html(teams, filename="ucl_standings.html"):
 </html>
 """)
 
-# Génération du classement
-teams = create_ucl_standings()
-
-# Affichage console
-display_standings(teams)
-
-# Export HTML
-export_html(teams)
-print("\nClassement exporté dans 'ucl_standings.html' 
+# --- LANCEMENT PRINCIPAL ---
+if __name__ == "__main__":
+    teams = create_ucl_standings()
+    teams.sort(key=lambda t: t.points, reverse=True)  # Tri par points
+    display_standings(teams)
+    export_html(teams)
+    print("\nClassement exporté dans 'ucl_standings.html'")
