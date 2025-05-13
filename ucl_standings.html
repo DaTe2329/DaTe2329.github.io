@@ -7,13 +7,12 @@ class Team:
         self.draws = draws
         self.losses = losses
         self.points = points
-    
-    def goal_difference(self):  # Extension possible
+
+    def goal_difference(self):
         return 0
 
 def create_ucl_standings():
     teams = [
-        # Top 8
         Team("Liverpool", "🔴", 8, 7, 0, 1, 21),
         Team("Barcelona", "🔵🔴", 8, 6, 1, 1, 19),
         Team("Arsenal", "🔴", 8, 6, 1, 1, 19),
@@ -22,8 +21,6 @@ def create_ucl_standings():
         Team("Bayer Leverkusen", "🔴⚫", 8, 5, 1, 2, 16),
         Team("Lille", "🔴", 8, 5, 1, 2, 16),
         Team("Aston Villa", "🔵", 8, 5, 1, 2, 16),
-        
-        # Suite du classement
         Team("Atalanta BC", "🔵⚫", 8, 4, 3, 3, 15),
         Team("Borussia Dortmund", "🟡⚫", 8, 5, 0, 3, 15),
         Team("Real Madrid", "⚪", 8, 5, 0, 3, 15),
@@ -69,81 +66,186 @@ def export_html(teams, filename="ucl_standings.html"):
         f.write("""<!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Classement Ligue des Champions 2024-2025</title>
-    <style>
-        body { font-family: Arial, sans-serif; margin: 20px; }
-        h1 { color: #1a3e8c; }
-        table { width: 100%; border-collapse: collapse; }
-        th { background-color: #1a3e8c; color: white; padding: 10px; text-align: left; }
-        td { padding: 8px; border-bottom: 1px solid #ddd; }
-        tr:nth-child(even) { background-color: #f2f2f2; }
-        .logo { font-size: 1.2em; text-align: center; }
-        .qualified { background-color: #d4edda !important; }
-        .playoffs { background-color: #fff3cd !important; }
-        .eliminated { background-color: #f8d7da !important; }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Classement Ligue des Champions 2024-2025</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 20px;
+      background: #f4f6f8;
+      color: #222;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    h1 {
+      color: #1a3e8c;
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+    }
+
+    .button-home {
+      background-color: #1a3e8c;
+      color: white;
+      border: none;
+      padding: 10px 16px;
+      font-size: 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      text-decoration: none;
+    }
+
+    .button-home:hover {
+      background-color: #133070;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      background-color: white;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    th {
+      background-color: #1a3e8c;
+      color: white;
+      padding: 12px;
+      text-align: left;
+    }
+
+    td {
+      padding: 10px;
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+
+    .logo {
+      text-align: center;
+      font-size: 1.2em;
+    }
+
+    .qualified {
+      background-color: #d4edda;
+    }
+
+    .playoffs {
+      background-color: #fff3cd;
+    }
+
+    .eliminated {
+      background-color: #f8d7da;
+    }
+
+    @media (max-width: 768px) {
+      th, td {
+        font-size: 0.9rem;
+        padding: 8px;
+      }
+
+      h1 {
+        font-size: 1.4rem;
+      }
+
+      .button-home {
+        font-size: 0.9rem;
+        padding: 8px 12px;
+      }
+    }
+
+    .legend {
+      margin-top: 30px;
+    }
+
+    .legend span {
+      display: inline-block;
+      padding: 4px 8px;
+      margin-right: 10px;
+      border-radius: 4px;
+    }
+
+    .green { background-color: #d4edda; }
+    .yellow { background-color: #fff3cd; }
+    .red { background-color: #f8d7da; }
+  </style>
 </head>
 <body>
+
+  <header>
     <h1>Ligue des Champions 2024-2025 - Phase de Ligue</h1>
-    <p><em>Nouveau format avec 36 équipes - 8 journées</em></p>
-    
-    <table>
-        <thead>
-            <tr>
-                <th>Pos</th>
-                <th>Logo</th>
-                <th>Équipe</th>
-                <th>Pts</th>
-                <th>MJ</th>
-                <th>V</th>
-                <th>N</th>
-                <th>D</th>
-            </tr>
-        </thead>
-        <tbody>
+    <a href="index.html" class="button-home">🏠 Retour à l'accueil</a>
+  </header>
+
+  <p><em>Nouveau format avec 36 équipes – 8 journées</em></p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Pos</th>
+        <th>Logo</th>
+        <th>Équipe</th>
+        <th>Pts</th>
+        <th>MJ</th>
+        <th>V</th>
+        <th>N</th>
+        <th>D</th>
+      </tr>
+    </thead>
+    <tbody>
 """)
         for i, team in enumerate(teams, 1):
-            # Statut
             if i <= 8:
                 row_class = "qualified"
             elif i <= 24:
                 row_class = "playoffs"
             else:
                 row_class = "eliminated"
-            
-            f.write(f"""            <tr class="{row_class}">
-                <td>{i}</td>
-                <td class="logo">{team.logo}</td>
-                <td>{team.name}</td>
-                <td>{team.points}</td>
-                <td>{team.played}</td>
-                <td>{team.wins}</td>
-                <td>{team.draws}</td>
-                <td>{team.losses}</td>
-            </tr>
+
+            f.write(f"""      <tr class="{row_class}">
+        <td>{i}</td>
+        <td class="logo">{team.logo}</td>
+        <td>{team.name}</td>
+        <td>{team.points}</td>
+        <td>{team.played}</td>
+        <td>{team.wins}</td>
+        <td>{team.draws}</td>
+        <td>{team.losses}</td>
+      </tr>
 """)
-        
-        f.write("""        </tbody>
-    </table>
-    
-    <div style="margin-top: 20px;">
-        <p><strong>Légende :</strong></p>
-        <ul>
-            <li><span style="background-color: #d4edda; padding: 2px 5px;">1-8 : Qualification directe en huitièmes</span></li>
-            <li><span style="background-color: #fff3cd; padding: 2px 5px;">9-24 : Barrages de qualification</span></li>
-            <li><span style="background-color: #f8d7da; padding: 2px 5px;">25-36 : Éliminés</span></li>
-        </ul>
-    </div>
+
+        f.write("""    </tbody>
+  </table>
+
+  <div class="legend">
+    <p><strong>Légende :</strong></p>
+    <ul>
+      <li><span class="green">1-8 : Qualification directe en huitièmes</span></li>
+      <li><span class="yellow">9-24 : Barrages de qualification</span></li>
+      <li><span class="red">25-36 : Éliminés</span></li>
+    </ul>
+  </div>
+
 </body>
 </html>
 """)
 
-# --- LANCEMENT PRINCIPAL ---
+# --- MAIN ---
 if __name__ == "__main__":
     teams = create_ucl_standings()
-    teams.sort(key=lambda t: t.points, reverse=True)  # Tri par points
+    teams.sort(key=lambda t: t.points, reverse=True)
     display_standings(teams)
     export_html(teams)
     print("\nClassement exporté dans 'ucl_standings.html'")
