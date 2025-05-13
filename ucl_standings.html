@@ -1,69 +1,4 @@
-class Team: 
-    def __init__(self, name, logo, played, wins, draws, losses, points):
-        self.name = name
-        self.logo = logo
-        self.played = played
-        self.wins = wins
-        self.draws = draws
-        self.losses = losses
-        self.points = points
-
-    def goal_difference(self):
-        return 0
-
-def create_ucl_standings():
-    teams = [
-        Team("Liverpool", "🔴", 8, 7, 0, 1, 21),
-        Team("Barcelona", "🔵🔴", 8, 6, 1, 1, 19),
-        Team("Arsenal", "🔴", 8, 6, 1, 1, 19),
-        Team("Inter Milan", "🔵⚫", 8, 6, 1, 1, 19),
-        Team("Atlético Madrid", "🔴⚪", 8, 6, 0, 2, 18),
-        Team("Bayer Leverkusen", "🔴⚫", 8, 5, 1, 2, 16),
-        Team("Lille", "🔴", 8, 5, 1, 2, 16),
-        Team("Aston Villa", "🔵", 8, 5, 1, 2, 16),
-        Team("Atalanta BC", "🔵⚫", 8, 4, 3, 3, 15),
-        Team("Borussia Dortmund", "🟡⚫", 8, 5, 0, 3, 15),
-        Team("Real Madrid", "⚪", 8, 5, 0, 3, 15),
-        Team("Bayern Munich", "🔴", 8, 5, 0, 3, 15),
-        Team("AC Milan", "🔴⚫", 8, 5, 0, 3, 15),
-        Team("PSV Eindhoven", "🔴⚪", 8, 4, 2, 2, 14),
-        Team("Paris Saint-Germain", "🔵🔴", 8, 4, 1, 3, 13),
-        Team("Benfica", "🔴⚪", 8, 4, 1, 3, 13),
-        Team("Monaco", "🔴⚪", 8, 4, 1, 3, 13),
-        Team("Brest", "⚪", 8, 4, 1, 3, 13),
-        Team("Feyenoord", "🔴⚪⚫", 8, 4, 1, 3, 13),
-        Team("Juventus", "⚫⚪", 8, 3, 3, 2, 12),
-        Team("Celtic Glasgow", "🟢⚪", 8, 3, 3, 2, 12),
-        Team("Manchester City", "", 8, 3, 2, 3, 11),
-        Team("Sporting CP", "🟢⚪", 8, 3, 2, 3, 11),
-        Team("Club Brugge", "🔵⚫", 8, 3, 2, 3, 11),
-        Team("Dinamo Zagreb", "🔵", 8, 3, 2, 3, 11),
-        Team("Stuttgart", "🔴", 8, 3, 1, 4, 10),
-        Team("Shakhtar Donetsk", "🟠⚫", 8, 2, 1, 5, 7),
-        Team("Bologna", "🔴🔵", 8, 1, 3, 4, 6),
-        Team("Étoile Rouge", "🔴⚪", 8, 2, 0, 6, 6),
-        Team("Sturm Graz", "⚫⚪", 8, 2, 0, 6, 6),
-        Team("Sparta Prague", "🔴", 8, 1, 1, 6, 4),
-        Team("RB Leipzig", "🔴⚪", 8, 1, 0, 7, 3),
-        Team("Girona", "⚪🔴", 8, 1, 0, 7, 3),
-        Team("RB Salzburg", "🔴⚪", 8, 1, 0, 7, 3),
-        Team("Slovan Bratislava", "🔵⚪", 8, 0, 0, 8, 0),
-        Team("Young Boys", "🟡⚫", 8, 0, 0, 8, 0)
-    ]
-    return teams
-
-def display_standings(teams):
-    print("LIGUE DES CHAMPIONS 2024-2025 - PHASE DE LIGUE")
-    print("="*90)
-    print(f"{'Pos':<4} {'Logo':<5} {'Équipe':<25} {'Pts':<5} {'MJ':<5} {'V':<5} {'N':<5} {'D':<5}")
-    print("-"*90)
-    
-    for i, team in enumerate(teams, 1):
-        print(f"{i:<4} {team.logo:<5} {team.name:<25} {team.points:<5} {team.played:<5} {team.wins:<5} {team.draws:<5} {team.losses:<5}")
-
-def export_html(teams, filename="ucl_standings.html"):
-    with open(filename, "w", encoding="utf-8") as f:
-        f.write("""<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
@@ -202,31 +137,407 @@ def export_html(teams, filename="ucl_standings.html"):
         <th>V</th>
         <th>N</th>
         <th>D</th>
+        <th>Diff</th>
       </tr>
     </thead>
     <tbody>
-""")
-        for i, team in enumerate(teams, 1):
-            if i <= 8:
-                row_class = "qualified"
-            elif i <= 24:
-                row_class = "playoffs"
-            else:
-                row_class = "eliminated"
-
-            f.write(f"""      <tr class="{row_class}">
-        <td>{i}</td>
-        <td class="logo">{team.logo}</td>
-        <td>{team.name}</td>
-        <td>{team.points}</td>
-        <td>{team.played}</td>
-        <td>{team.wins}</td>
-        <td>{team.draws}</td>
-        <td>{team.losses}</td>
+      <tr class="qualified">
+        <td>1</td>
+        <td class="logo">🔴</td>
+        <td>Liverpool</td>
+        <td>21</td>
+        <td>8</td>
+        <td>7</td>
+        <td>0</td>
+        <td>1</td>
+        <td>+19</td>
       </tr>
-""")
-
-        f.write("""    </tbody>
+      <tr class="qualified">
+        <td>2</td>
+        <td class="logo">🔵🔴</td>
+        <td>Barcelona</td>
+        <td>19</td>
+        <td>8</td>
+        <td>6</td>
+        <td>1</td>
+        <td>1</td>
+        <td>+13</td>
+      </tr>
+      <tr class="qualified">
+        <td>3</td>
+        <td class="logo">🔴</td>
+        <td>Arsenal</td>
+        <td>19</td>
+        <td>8</td>
+        <td>6</td>
+        <td>1</td>
+        <td>1</td>
+        <td>+11</td>
+      </tr>
+      <tr class="qualified">
+        <td>4</td>
+        <td class="logo">🔵⚫</td>
+        <td>Inter Milan</td>
+        <td>19</td>
+        <td>8</td>
+        <td>6</td>
+        <td>1</td>
+        <td>1</td>
+        <td>+12</td>
+      </tr>
+      <tr class="playoffs">
+        <td>5</td>
+        <td class="logo">🔴⚪</td>
+        <td>Atlético Madrid</td>
+        <td>18</td>
+        <td>8</td>
+        <td>6</td>
+        <td>0</td>
+        <td>2</td>
+        <td>+9</td>
+      </tr>
+      <tr class="playoffs">
+        <td>6</td>
+        <td class="logo">🔴⚫</td>
+        <td>Bayer Leverkusen</td>
+        <td>16</td>
+        <td>8</td>
+        <td>5</td>
+        <td>1</td>
+        <td>2</td>
+        <td>+7</td>
+      </tr>
+      <tr class="playoffs">
+        <td>7</td>
+        <td class="logo">🔴</td>
+        <td>Lille</td>
+        <td>16</td>
+        <td>8</td>
+        <td>5</td>
+        <td>1</td>
+        <td>2</td>
+        <td>+3</td>
+      </tr>
+      <tr class="playoffs">
+        <td>8</td>
+        <td class="logo">🔵</td>
+        <td>Aston Villa</td>
+        <td>16</td>
+        <td>8</td>
+        <td>5</td>
+        <td>1</td>
+        <td>2</td>
+        <td>+5</td>
+      </tr>
+      <tr class="playoffs">
+        <td>9</td>
+        <td class="logo">🔵⚫</td>
+        <td>Atalanta BC</td>
+        <td>15</td>
+        <td>8</td>
+        <td>4</td>
+        <td>3</td>
+        <td>3</td>
+        <td>+5</td>
+      </tr>
+      <tr class="playoffs">
+        <td>10</td>
+        <td class="logo">🟡⚫</td>
+        <td>Borussia Dortmund</td>
+        <td>15</td>
+        <td>8</td>
+        <td>5</td>
+        <td>0</td>
+        <td>3</td>
+        <td>+2</td>
+      </tr>
+      <tr class="playoffs">
+        <td>11</td>
+        <td class="logo">⚪</td>
+        <td>Real Madrid</td>
+        <td>15</td>
+        <td>8</td>
+        <td>5</td>
+        <td>0</td>
+        <td>3</td>
+        <td>+3</td>
+      </tr>
+      <tr class="playoffs">
+        <td>12</td>
+        <td class="logo">🔴</td>
+        <td>Bayern Munich</td>
+        <td>15</td>
+        <td>8</td>
+        <td>5</td>
+        <td>0</td>
+        <td>3</td>
+        <td>+4</td>
+      </tr>
+      <tr class="playoffs">
+        <td>13</td>
+        <td class="logo">🔴⚫</td>
+        <td>AC Milan</td>
+        <td>15</td>
+        <td>8</td>
+        <td>5</td>
+        <td>0</td>
+        <td>3</td>
+        <td>+2</td>
+      </tr>
+      <tr class="playoffs">
+        <td>14</td>
+        <td class="logo">🔴⚪</td>
+        <td>PSV Eindhoven</td>
+        <td>14</td>
+        <td>8</td>
+        <td>4</td>
+        <td>2</td>
+        <td>2</td>
+        <td>+6</td>
+      </tr>
+      <tr class="playoffs">
+        <td>15</td>
+        <td class="logo">🔵🔴</td>
+        <td>Paris Saint-Germain</td>
+        <td>13</td>
+        <td>8</td>
+        <td>4</td>
+        <td>1</td>
+        <td>3</td>
+        <td>+2</td>
+      </tr>
+      <tr class="playoffs">
+        <td>16</td>
+        <td class="logo">🔴⚪</td>
+        <td>Benfica</td>
+        <td>13</td>
+        <td>8</td>
+        <td>4</td>
+        <td>1</td>
+        <td>3</td>
+        <td>+1</td>
+      </tr>
+      <tr class="playoffs">
+        <td>17</td>
+        <td class="logo">🔴⚪</td>
+        <td>Monaco</td>
+        <td>13</td>
+        <td>8</td>
+        <td>4</td>
+        <td>1</td>
+        <td>3</td>
+        <td>+2</td>
+      </tr>
+      <tr class="playoffs">
+        <td>18</td>
+        <td class="logo">⚪</td>
+        <td>Brest</td>
+        <td>13</td>
+        <td>8</td>
+        <td>4</td>
+        <td>1</td>
+        <td>3</td>
+        <td>+1</td>
+      </tr>
+      <tr class="playoffs">
+        <td>19</td>
+        <td class="logo">🔴⚪⚫</td>
+        <td>Feyenoord</td>
+        <td>13</td>
+        <td>8</td>
+        <td>4</td>
+        <td>1</td>
+        <td>3</td>
+        <td>+3</td>
+      </tr>
+      <tr class="playoffs">
+        <td>20</td>
+        <td class="logo">⚫⚪</td>
+        <td>Juventus</td>
+        <td>12</td>
+        <td>8</td>
+        <td>3</td>
+        <td>3</td>
+        <td>2</td>
+        <td>+2</td>
+      </tr>
+      <tr class="playoffs">
+        <td>21</td>
+        <td class="logo">🟢⚪</td>
+        <td>Celtic Glasgow</td>
+        <td>12</td>
+        <td>8</td>
+        <td>3</td>
+        <td>3</td>
+        <td>2</td>
+        <td>+1</td>
+      </tr>
+      <tr class="playoffs">
+        <td>22</td>
+        <td class="logo">🔵</td>
+        <td>Manchester City</td>
+        <td>11</td>
+        <td>8</td>
+        <td>3</td>
+        <td>2</td>
+        <td>3</td>
+        <td>+0</td>
+      </tr>
+      <tr class="playoffs">
+        <td>23</td>
+        <td class="logo">🟢⚪</td>
+        <td>Sporting CP</td>
+        <td>11</td>
+        <td>8</td>
+        <td>3</td>
+        <td>2</td>
+        <td>3</td>
+        <td>-1</td>
+      </tr>
+      <tr class="playoffs">
+        <td>24</td>
+        <td class="logo">🔵⚫</td>
+        <td>Club Brugge</td>
+        <td>11</td>
+        <td>8</td>
+        <td>3</td>
+        <td>2</td>
+        <td>3</td>
+        <td>-2</td>
+      </tr>
+      <tr class="eliminated">
+        <td>25</td>
+        <td class="logo">🔵</td>
+        <td>Dinamo Zagreb</td>
+        <td>11</td>
+        <td>8</td>
+        <td>3</td>
+        <td>2</td>
+        <td>3</td>
+        <td>-3</td>
+      </tr>
+      <tr class="eliminated">
+        <td>26</td>
+        <td class="logo">🔴</td>
+        <td>Stuttgart</td>
+        <td>10</td>
+        <td>8</td>
+        <td>3</td>
+        <td>1</td>
+        <td>4</td>
+        <td>-4</td>
+      </tr>
+      <tr class="eliminated">
+        <td>27</td>
+        <td class="logo">🟠⚫</td>
+        <td>Shakhtar Donetsk</td>
+        <td>7</td>
+        <td>8</td>
+        <td>2</td>
+        <td>1</td>
+        <td>5</td>
+        <td>-7</td>
+      </tr>
+      <tr class="eliminated">
+        <td>28</td>
+        <td class="logo">🔴🔵</td>
+        <td>Bologna</td>
+        <td>6</td>
+        <td>8</td>
+        <td>1</td>
+        <td>3</td>
+        <td>4</td>
+        <td>-6</td>
+      </tr>
+      <tr class="eliminated">
+        <td>29</td>
+        <td class="logo">🔴⚪</td>
+        <td>Étoile Rouge</td>
+        <td>6</td>
+        <td>8</td>
+        <td>2</td>
+        <td>0</td>
+        <td>6</td>
+        <td>-8</td>
+      </tr>
+      <tr class="eliminated">
+        <td>30</td>
+        <td class="logo">⚫⚪</td>
+        <td>Sturm Graz</td>
+        <td>6</td>
+        <td>8</td>
+        <td>2</td>
+        <td>0</td>
+        <td>6</td>
+        <td>-10</td>
+      </tr>
+      <tr class="eliminated">
+        <td>31</td>
+        <td class="logo">🔴</td>
+        <td>Sparta Prague</td>
+        <td>4</td>
+        <td>8</td>
+        <td>1</td>
+        <td>1</td>
+        <td>6</td>
+        <td>-12</td>
+      </tr>
+      <tr class="eliminated">
+        <td>32</td>
+        <td class="logo">🔴⚪</td>
+        <td>RB Leipzig</td>
+        <td>3</td>
+        <td>8</td>
+        <td>1</td>
+        <td>0</td>
+        <td>7</td>
+        <td>-14</td>
+      </tr>
+      <tr class="eliminated">
+        <td>33</td>
+        <td class="logo">⚪🔴</td>
+        <td>Girona</td>
+        <td>3</td>
+        <td>8</td>
+        <td>1</td>
+        <td>0</td>
+        <td>7</td>
+        <td>-15</td>
+      </tr>
+      <tr class="eliminated">
+        <td>34</td>
+        <td class="logo">🔴⚪</td>
+        <td>RB Salzburg</td>
+        <td>3</td>
+        <td>8</td>
+        <td>1</td>
+        <td>0</td>
+        <td>7</td>
+        <td>-16</td>
+      </tr>
+      <tr class="eliminated">
+        <td>35</td>
+        <td class="logo">🔵⚪</td>
+        <td>Slovan Bratislava</td>
+        <td>0</td>
+        <td>8</td>
+        <td>0</td>
+        <td>0</td>
+        <td>8</td>
+        <td>-20</td>
+      </tr>
+      <tr class="eliminated">
+        <td>36</td>
+        <td class="logo">🟡⚫</td>
+        <td>Young Boys</td>
+        <td>0</td>
+        <td>8</td>
+        <td>0</td>
+        <td>0</td>
+        <td>8</td>
+        <td>-21</td>
+      </tr>
+    </tbody>
   </table>
 
   <div class="legend">
@@ -240,12 +551,3 @@ def export_html(teams, filename="ucl_standings.html"):
 
 </body>
 </html>
-""")
-
-# --- MAIN ---
-if __name__ == "__main__":
-    teams = create_ucl_standings()
-    teams.sort(key=lambda t: t.points, reverse=True)
-    display_standings(teams)
-    export_html(teams)
-    print("\nClassement exporté dans 'ucl_standings.html'")
