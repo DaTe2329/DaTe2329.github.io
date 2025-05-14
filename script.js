@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
         matchCard.querySelector('button').addEventListener('click', () => {
           Swal.fire({
             title: 'Fonctionnalité indisponible',
-            text: "Cette fonctionnalité n'est pas encore disponible. Revenez plus tard.",
+            text: "Cette fonctionnalité n'est pas encore disponible. Revenez plus tard !",
             icon: 'warning'
           });
         });
