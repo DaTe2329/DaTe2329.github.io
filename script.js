@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const fixtures = data.response;
 
       if (fixtures.length === 0) {
-        matchList.innerHTML = '<p>Aucun match en direct pour le moment.</p>';
+        matchList.innerHTML = '<p>Aucun match en direct pour le moment. Ou revenez demain.</p>';
         return;
       }
 
