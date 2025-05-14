@@ -7,6 +7,8 @@
   <title>PariezFoot - La victoire est à portée de clic. Pariez maintenant !</title>
   <link href="feuilledestyle.css" rel="stylesheet" type="text/css" />
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.0.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.0.0/firebase-auth.js"></script>
 </head>
 
 <body>
@@ -32,14 +34,6 @@
     <button class="btn-bet-now">Placer un pari maintenant</button>
   </section>
 
-  <!-- Matches Section -->
-  <section id="matches" class="matches-section">
-    <h2>Matchs en Direct</h2>
-    <ul class="match-list live-matches">
-      <p>Chargement des scores en direct...</p>
-    </ul>
-  </section>
-
   <!-- Registration Section -->
   <section id="registration" class="registration-section">
     <h2>Inscription</h2>
@@ -63,145 +57,33 @@
   </footer>
 
   <!-- Firebase and Script -->
-  <script type="module">
-    // Import des modules Firebase
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-app.js";
-    import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-auth.js";
-
-    // Configuration de Firebase (remplace les valeurs par les tiennes)
-    const firebaseConfig = {
-      apiKey: "TA_CLE_API",
-      authDomain: "TON_DOMAINE.firebaseapp.com",
-      projectId: "TON_PROJECT_ID",
-      storageBucket: "TON_STORAGE_BUCKET",
-      messagingSenderId: "TON_MESSAGING_SENDER_ID",
-      appId: "TON_APP_ID",
-    };
-
-    // Initialiser Firebase
-    const app = initializeApp(firebaseConfig);
-    const auth = getAuth(app);
-
-    // Sélectionner les éléments du DOM
-    const form = document.getElementById('registrationForm');
-    const emailInput = document.getElementById('email');
-    const passwordInput = document.getElementById('password');
-
-    // Gérer l'inscription
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const email = emailInput.value;
-      const password = passwordInput.value;
-
-      try {
-        await createUserWithEmailAndPassword(auth, email, password);
-        Swal.fire('Inscription réussie ! ✅', 'Votre compte a été créé avec succès.', 'success');
-        form.reset();
-      } catch (error) {
-        Swal.fire('Erreur lors de l\'inscription', error.message, 'error');
-      }
-    });
-  </script>
-</body>
-
-</html>
-<!DOCTYPE html>
-<html lang="fr">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PariezFoot - La victoire est à portée de clic. Pariez maintenant !</title>
-  <link href="feuilledestyle.css" rel="stylesheet" type="text/css" />
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-</head>
-
-<body>
-  <header>
-    <nav class="navbar">
-      <div class="logo">
-        <img src="ae24868e092542c1a54f740481691587-free.png" alt="PariezFoot Logo" />
-      </div>
-      <ul class="nav-links">
-        <li><a href="index.html">Accueil</a></li>
-        <li><a href="images/competition.html">Phase Finale</a></li>
-        <li><a href="ucl_standings.html">Phase de Ligue</a></li>
-        <li><a href="equipes.html">Équipes</a></li>
-        <li><a href="#registration">Inscription</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <!-- Main Section -->
-  <section id="home" class="main-section">
-    <h2>Bienvenue sur PariezFoot !</h2>
-    <p>La victoire est à portée de clic. Pariez maintenant !</p>
-    <button class="btn-bet-now">Placer un pari maintenant</button>
-  </section>
-
-  <!-- Matches Section -->
-  <section id="matches" class="matches-section">
-    <h2>Matchs en Direct</h2>
-    <ul class="match-list live-matches">
-      <p>Chargement des scores en direct...</p>
-    </ul>
-  </section>
-
-  <!-- Registration Section -->
-  <section id="registration" class="registration-section">
-    <h2>Inscription</h2>
-    <form id="registrationForm">
-      <label for="username">Nom d'utilisateur</label>
-      <input type="text" id="username" name="username" required>
-
-      <label for="email">Email</label>
-      <input type="email" id="email" name="email" required>
-
-      <label for="password">Mot de passe</label>
-      <input type="password" id="password" name="password" required>
-
-      <button type="submit">S'inscrire</button>
-      <p id="registrationMessage"></p>
-    </form>
-  </section>
-
-  <footer>
-    <p>&copy; 2025 PariezFoot. Tous droits réservés.</p>
-  </footer>
-
-  <!-- Firebase and Script -->
-  <script type="module">
-    
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-app.js";
-    import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-auth.js";
-
-    
+  <script>
+    // Configuration de Firebase
     const firebaseConfig = {
       apiKey: "AIzaSyD8yj9_Jpgkpy9qzlAfzKg91kbsJtOXKkU",
       authDomain: "pariezfoot.firebaseapp.com",
       projectId: "pariezfoot",
-      storageBucket: "pariezfoot.firebasestorage.app",
+      storageBucket: "pariezfoot.appspot.com",
       messagingSenderId: "322027750038",
-      appId: "1:322027750038:web:a441a398517af3e62bf8b7",
+      appId: "1:322027750038:web:a441a398517af3e62bf8b7"
     };
 
-    
-    const app = initializeApp(firebaseConfig);
-    const auth = getAuth(app);
+    // Initialiser Firebase
+    firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
 
-    
+    // Gestion du formulaire
     const form = document.getElementById('registrationForm');
     const emailInput = document.getElementById('email');
     const passwordInput = document.getElementById('password');
 
-    
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
       const email = emailInput.value;
       const password = passwordInput.value;
 
       try {
-        await createUserWithEmailAndPassword(auth, email, password);
+        await auth.createUserWithEmailAndPassword(email, password);
         Swal.fire('Inscription réussie ! ✅', 'Votre compte a été créé avec succès.', 'success');
         form.reset();
       } catch (error) {
