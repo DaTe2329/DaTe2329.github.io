@@ -22,7 +22,7 @@ body {
 }
 
 .navbar .logo img {
-  height: 40px;
+  height: 90px;
 }
 
 .nav-links {
@@ -66,7 +66,7 @@ body {
 
 /* Liste des équipes */
 .teams-list {
-  list-style: none; /* supprime les puces */
+  list-style: none; 
   padding: 0;
   margin: 0;
   display: flex;
